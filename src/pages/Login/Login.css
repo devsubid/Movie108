@@ -27,21 +27,3 @@
   border-left: 0.5rem solid rgb(var(--primary-color));
   padding-left: 0.625rem;
 }
-
-.button__container{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.login__container .button__container a{
-  align-self: flex-end;
-  color:  rgb(var(--primary-color));
-  text-decoration: none;
-}
-
-.login__container .button__container a:hover{
-  color:  rgb(var(--primary-color));
-  text-decoration: underline;
-}

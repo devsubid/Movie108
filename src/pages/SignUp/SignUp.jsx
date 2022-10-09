@@ -1,5 +1,6 @@
 import "./SignUp.css";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const [status, setStatus] = useState("");
@@ -20,6 +21,7 @@ function SignUp() {
       console.log("proceed to sign up");
     }
   };
+
   return (
     <div className="container">
       <div className="signUp">
@@ -90,9 +92,14 @@ function SignUp() {
                 {status}
               </span>
             </div>
-            <button type="submit" className="login__signUpButton">
-              Sign Up
-            </button>
+            <div className="button__container">
+              <button type="submit" className="login__signInButton">
+                Sign Up
+              </button>
+              <Link to="/login">
+                <span>Already Have an Account</span>
+              </Link>
+            </div>
           </form>
         </div>
       </div>
