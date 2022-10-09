@@ -1,0 +1,134 @@
+.signUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 4rem);
+}
+
+.signUp__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+  color: rgb(var(--light-color));
+  background-color: rgba(var(--dark-color), 0.8);
+  border: 1px solid rgba(var(--primary-color), 0.5);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(var(--primary-color), 0.5);
+}
+
+.signUp__container h1 {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  border-left: 0.5rem solid rgb(var(--primary-color));
+  padding-left: 0.625rem;
+}
+
+.signUp__container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block: 1rem;
+  width: 100%;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.form-group label {
+  font-size: 1.15em;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  outline: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 30%);
+  background-color: transparent;
+  color: rgb(var(--light-color));
+  font-size: 1.15em;
+  font-weight: 300;
+  transition: all 0.15 ease;
+}
+
+.form-group input:focus {
+  border: 1px solid rgb(var(--primary-color));
+}
+
+.form-group input::placeholder {
+  color: rgb(var(--light-color));
+  opacity: 0.5;
+  transition: all 0.15 ease;
+}
+
+button[type="submit"] {
+  padding: 0.85rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  background-color: rgb(var(--light-color));
+  color: rgb(var(--dark-color));
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: transparent;
+  color: rgb(var(--light-color));
+  border-color: rgb(var(--light-color));
+}
+
+.light button[type="submit"] {
+  background-color: rgb(var(--dark-color));
+  color: rgb(var(--light-color));
+}
+
+.light button[type="submit"]:hover {
+  background-color: transparent;
+  color: rgb(var(--dark-color));
+  border-color: rgb(var(--dark-color));
+}
+
+.light .form-group input {
+  color: rgb(var(--dark-color));
+  border: 1px solid rgb(0 0 0 / 30%);
+  caret-color: rgb(var(--dark-color));
+}
+
+.light .form-group textarea {
+  color: rgb(var(--dark-color));
+  border: 1px solid rgb(0 0 0 / 30%);
+  caret-color: rgb(var(--dark-color));
+}
+
+.light .form-group input::placeholder {
+  color: rgb(var(--dark-color));
+}
+
+.light .form-group textarea::placeholder {
+  color: rgb(var(--dark-color));
+}
+
+label {
+  display: inline-block;
+}
+
+.label_faded {
+  opacity: 0.5;
+}
