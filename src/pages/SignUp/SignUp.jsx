@@ -1,5 +1,5 @@
 import "./SignUp.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function SignUp() {
@@ -21,6 +21,9 @@ function SignUp() {
       console.log("proceed to sign up");
     }
   };
+  useEffect(() => {
+    document.title = "Movie108 | Sign Up";
+  }, []);
 
   return (
     <div className="container">

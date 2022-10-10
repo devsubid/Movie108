@@ -1,8 +1,11 @@
 import "./Login.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
+  useEffect(() => {
+    document.title = "Movie108 | Login";
+  }, []);
   return (
     <div className="container">
       <div className="login">
