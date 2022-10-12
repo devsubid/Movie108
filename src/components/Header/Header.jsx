@@ -15,6 +15,8 @@ function Header() {
     "Showtimes & Tickets",
     "Movie News",
     "India Movie Spotlight",
+    "About Us",
+    "Contact Us",
   ];
   let changeMode = () => {
     let body = document.body;

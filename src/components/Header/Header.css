@@ -67,24 +67,6 @@ header .heading h1 {
   filter: invert(0.2);
 }
 
-::-webkit-scrollbar {
-  width: 0.25em;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-  margin-block: 0.45em;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(var(--primary-color));
-  border-radius: 0.5rem;
-}
-
-.light ::-webkit-scrollbar-thumb {
-  background: rgb(var(--dark-color));
-}
-
 .light .modeToggler .svg {
   background: rgb(var(--dark-color));
   mask: url(../../assets/sun.svg) no-repeat center;
@@ -172,7 +154,7 @@ header .heading h1 {
   .modeToggler {
     margin-block: 0.5rem;
   }
-  
+
   .right-header .buttons {
     display: none;
   }
