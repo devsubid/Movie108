@@ -59,6 +59,10 @@ header .heading h1 {
   cursor: pointer;
 }
 
+.modeToggler .svg:active{
+  scale: 1.15;
+}
+
 .modeToggler .svg:hover {
   filter: brightness(0.8);
 }
