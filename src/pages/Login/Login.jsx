@@ -1,6 +1,7 @@
 import "./Login.css";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Buttons from "../../components/Buttons/Buttons";
 
 function Login() {
   useEffect(() => {
@@ -35,9 +36,7 @@ function Login() {
               />
             </div>
             <div className="button__container">
-              <button type="submit" className="login__signInButton">
-                Login
-              </button>
+              <Buttons btnType="submit" btnText="Login" />
               <Link to="/signup">
                 <span>Register New User</span>
               </Link>

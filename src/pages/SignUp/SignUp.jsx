@@ -1,6 +1,7 @@
 import "./SignUp.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Buttons from "../../components/Buttons/Buttons";
 
 function SignUp() {
   const [status, setStatus] = useState("");
@@ -96,9 +97,7 @@ function SignUp() {
               </span>
             </div>
             <div className="button__container">
-              <button type="submit" className="login__signInButton">
-                Sign Up
-              </button>
+              <Buttons btnType="submit" btnText="Sign Up" />
               <Link to="/login">
                 <span>Already Have an Account</span>
               </Link>
