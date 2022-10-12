@@ -2,6 +2,7 @@ import "./Header.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu/Menu";
+import Button from "./../Buttons/Buttons";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,13 +41,23 @@ function Header() {
                 </div>
                 <Link to="/">Movie108</Link>
               </h1>
-              <div
-                className="modeToggler"
-                onClick={() => {
-                  changeMode();
-                }}
-              >
-                <div className="svg"></div>
+              <div className="right-header">
+                <div
+                  className="modeToggler"
+                  onClick={() => {
+                    changeMode();
+                  }}
+                >
+                  <div className="svg"></div>
+                </div>
+                <div className="buttons">
+                  <Link to="/login" className="btn btn-primary">
+                    <Button btnText="Login" btnSize="small" btnDegree="secondary" />
+                  </Link>
+                  <Link to="/signup" className="btn btn-secondary">
+                    <Button btnText="Sign Up" btnSize="small" btnDegree="primary" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

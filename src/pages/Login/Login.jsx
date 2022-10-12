@@ -1,9 +1,10 @@
 import "./Login.css";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Buttons from "../../components/Buttons/Buttons";
 
 function Login() {
+  const navigate = useNavigate();
   useEffect(() => {
     document.title = "Movie108 | Login";
   }, []);
@@ -12,7 +13,11 @@ function Login() {
       <div className="login">
         <div className="login__container">
           <h1>Login to Movie108</h1>
-          <form>
+          <form
+            onSubmit={() => {
+              navigate("/");
+            }}
+          >
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -36,7 +41,12 @@ function Login() {
               />
             </div>
             <div className="button__container">
-              <Buttons btnType="submit" btnText="Login" />
+              <Buttons
+                btnType="submit"
+                btnText="Login"
+                btnSize=""
+                btnDegree="primary"
+              />
               <Link to="/signup">
                 <span>Register New User</span>
               </Link>

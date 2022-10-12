@@ -90,31 +90,6 @@ header .heading h1 {
   mask: url(../../assets/sun.svg) no-repeat center;
 }
 
-@media screen and (max-width: 950px) {
-  header {
-    margin: 0;
-    padding: 1rem;
-  }
-
-  header > .wrapper {
-    flex-direction: column;
-  }
-
-  header .wrapper > .heading {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  header > div > h1 {
-    margin-block: 0.5rem;
-  }
-
-  .modeToggler {
-    margin-block: 0.5rem;
-  }
-}
-
 .menu-icon {
   width: 2.5rem;
   height: 2.5rem;
@@ -159,4 +134,46 @@ header .heading h1 {
 
 .light .menu-icon .svg {
   background: rgb(var(--dark-color));
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.right-header .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 950px) {
+  header {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  header > .wrapper {
+    flex-direction: column;
+  }
+
+  header .wrapper > .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  header > div > h1 {
+    margin-block: 0.5rem;
+  }
+
+  .modeToggler {
+    margin-block: 0.5rem;
+  }
+  
+  .right-header .buttons {
+    display: none;
+  }
 }
