@@ -2,7 +2,7 @@ import "./Header.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu/Menu";
-import Button from "./../Buttons/Buttons";
+import Button from "./../Button/Button";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,11 +53,11 @@ function Header() {
                   <div className="svg"></div>
                 </div>
                 <div className="buttons">
-                  <Link to="/login" className="btn btn-primary">
-                    <Button btnText="Login" btnSize="small" btnDegree="secondary" />
+                  <Link to="/login">
+                    <Button className="small secondary">Login</Button>
                   </Link>
-                  <Link to="/signup" className="btn btn-secondary">
-                    <Button btnText="Sign Up" btnSize="small" btnDegree="primary" />
+                  <Link to="/signup">
+                    <Button className="small primary">Sign Up</Button>
                   </Link>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import "./SignUp.css";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Buttons from "../../components/Buttons/Buttons";
+import Button from "../../components/Button/Button";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -98,12 +98,9 @@ function SignUp() {
               </span>
             </div>
             <div className="button__container">
-              <Buttons
-                btnType="submit"
-                btnText="Sign Up"
-                btnSize=""
-                btnDegree="primary"
-              />
+              <Button className="primary" type="submit">
+                Sign Up
+              </Button>
               <Link to="/login">
                 <span>Already Have an Account</span>
               </Link>

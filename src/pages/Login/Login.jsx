@@ -1,7 +1,7 @@
 import "./Login.css";
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Buttons from "../../components/Buttons/Buttons";
+import Button from "../../components/Button/Button";
 
 function Login() {
   const navigate = useNavigate();
@@ -41,12 +41,9 @@ function Login() {
               />
             </div>
             <div className="button__container">
-              <Buttons
-                btnType="submit"
-                btnText="Login"
-                btnSize=""
-                btnDegree="primary"
-              />
+              <Button className="primary" type="submit">
+                Login
+              </Button>
               <Link to="/signup">
                 <span>Register New User</span>
               </Link>
