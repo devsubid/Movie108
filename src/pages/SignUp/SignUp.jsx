@@ -98,7 +98,7 @@ function SignUp() {
               </span>
             </div>
             <div className="button__container">
-              <Button className="primary" type="submit">
+              <Button className="primary" btnProperty="primary" type="submit">
                 Sign Up
               </Button>
               <Link to="/login">

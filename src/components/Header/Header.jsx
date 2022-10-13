@@ -54,10 +54,10 @@ function Header() {
                 </div>
                 <div className="buttons">
                   <Link to="/login">
-                    <Button className="small secondary">Login</Button>
+                    <Button className="secondary" btnProperty="small secondary">Login</Button>
                   </Link>
                   <Link to="/signup">
-                    <Button className="small primary">Sign Up</Button>
+                    <Button className="primary" btnProperty="small primary">Sign Up</Button>
                   </Link>
                 </div>
               </div>

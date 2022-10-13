@@ -1,8 +1,3 @@
-button.small {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-}
-
 button.large {
   padding: 1.25rem 2rem;
   font-size: 1.5rem;
@@ -22,11 +17,6 @@ button.secondary {
 }
 
 button.secondary:hover {
-  background-color: rgb(var(--light-color));
-  color: rgb(var(--dark-color));
-}
-
-button.primary {
   background-color: rgb(var(--light-color));
   color: rgb(var(--dark-color));
 }

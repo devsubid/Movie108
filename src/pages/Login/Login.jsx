@@ -41,7 +41,7 @@ function Login() {
               />
             </div>
             <div className="button__container">
-              <Button className="primary" type="submit">
+              <Button className="primary" btnProperty="primary" type="submit">
                 Login
               </Button>
               <Link to="/signup">
