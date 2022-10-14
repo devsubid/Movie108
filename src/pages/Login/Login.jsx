@@ -1,16 +1,47 @@
-import "./Login.css";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import Button from "../../components/Button/Button";
+
+const LoginDiv = styled.div`
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 4rem);
+  & .login__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgb(var(--primary-color), 0.5);
+    box-shadow: 0 0 20px rgb(var(--primary-color), 0.5);
+    & h1 {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 700;
+      border-left: 0.5rem solid rgb(var(--primary-color));
+      padding-left: 0.625rem;
+    }
+    & form {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-block: 1rem;
+      width: 100%;
+    }
+  }
+`;
 
 function Login() {
   const navigate = useNavigate();
-  useEffect(() => {
-    document.title = "Movie108 | Login";
-  }, []);
   return (
     <div className="container">
-      <div className="login">
+      <LoginDiv>
         <div className="login__container">
           <h1>Login to Movie108</h1>
           <form
@@ -37,6 +68,7 @@ function Login() {
                 id="password"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                autoComplete="on"
                 required
               />
             </div>
@@ -50,7 +82,7 @@ function Login() {
             </div>
           </form>
         </div>
-      </div>
+      </LoginDiv>
     </div>
   );
 }

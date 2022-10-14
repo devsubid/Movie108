@@ -1,11 +1,7 @@
-import "./Home.css";
-import React, { useEffect } from "react";
-import Header from "./../../components/Header/Header"
+import React from "react";
+import Header from "./../../components/Header/Header";
 
 function Home() {
-  useEffect(() => {
-    document.title = "Movie108 | Home";
-  }, []);
   return (
     <div className="container">
       <div className="home">

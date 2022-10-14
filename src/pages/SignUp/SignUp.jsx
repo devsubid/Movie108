@@ -1,7 +1,41 @@
-import "./SignUp.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import Button from "../../components/Button/Button";
+
+const SignUpDiv = styled.div`
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 4rem);
+  & .signUp__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    border: 1px solid rgba(var(--primary-color), 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(var(--primary-color), 0.5);
+    & h1 {
+      align-self: flex-start;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 700;
+      border-left: 0.5rem solid rgb(var(--primary-color));
+      padding-left: 0.625rem;
+    }
+    & form {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-block: 1rem;
+      width: 100%;
+    }
+  }
+`;
 
 function SignUp() {
   const navigate = useNavigate();
@@ -23,20 +57,16 @@ function SignUp() {
       navigate("/");
     }
   };
-  useEffect(() => {
-    document.title = "Movie108 | Sign Up";
-  }, []);
-
   return (
     <div className="container">
-      <div className="signUp">
+      <SignUpDiv>
         <div className="signUp__container">
           <h1>SignUp to Movie108</h1>
           <form id="signUp__form" onSubmit={SignUpSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
-                autoComplete="false"
+                autoComplete="on"
                 type="text"
                 placeholder="Enter your Name..."
                 name="name"
@@ -49,7 +79,7 @@ function SignUp() {
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
-                autoComplete="false"
+                autoComplete="on"
                 type="email"
                 placeholder="Enter your email..."
                 id="email"
@@ -61,7 +91,7 @@ function SignUp() {
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
-                autoComplete="false"
+                autoComplete="on"
                 type="password"
                 placeholder="Enter your password..."
                 id="password"
@@ -74,7 +104,7 @@ function SignUp() {
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input
                 onKeyUp={confirmPassword}
-                autoComplete="false"
+                autoComplete="off"
                 type="password"
                 placeholder="Enter your Confirm Password..."
                 id="confirmPassword"
@@ -107,7 +137,7 @@ function SignUp() {
             </div>
           </form>
         </div>
-      </div>
+      </SignUpDiv>
     </div>
   );
 }

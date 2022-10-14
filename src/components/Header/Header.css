@@ -3,7 +3,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  padding-block: 2rem;
+  padding-block: 1rem;
   background: rgb(var(--dark-color));
   z-index: 1;
   transition: all 0.15s ease;
@@ -59,7 +59,7 @@ header .heading h1 {
   cursor: pointer;
 }
 
-.modeToggler .svg:active{
+.modeToggler .svg:active {
   scale: 1.15;
 }
 
@@ -126,6 +126,7 @@ header .heading h1 {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-grow: 1;
 }
 
 .right-header .buttons {
@@ -136,11 +137,6 @@ header .heading h1 {
 }
 
 @media screen and (max-width: 950px) {
-  header {
-    margin: 0;
-    padding: 1rem;
-  }
-
   header > .wrapper {
     flex-direction: column;
   }
@@ -159,6 +155,10 @@ header .heading h1 {
     margin-block: 0.5rem;
   }
 
+  .right-header {
+    gap: 0;
+  }
+  
   .right-header .buttons {
     display: none;
   }
