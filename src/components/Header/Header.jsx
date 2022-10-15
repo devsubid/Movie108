@@ -5,6 +5,27 @@ import styled from "styled-components";
 import Menu from "./Menu/Menu";
 import Button from "./../Button/Button";
 
+const RightHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+  & .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  @media screen and (max-width: 950px) {
+    & {
+      gap: 0;
+      & .buttons{
+        display: none;
+      }
+    }
+  }
+`;
+
 const SearchBox = styled.div`
   display: flex;
   place-content: center;
@@ -133,6 +154,10 @@ function Header() {
       body.classList.contains("light") ? "light" : "dark"
     );
   };
+  let activeSearch = () => {
+    document.querySelector("#query").classList.toggle("active");
+    document.querySelector("#searchBtn").classList.toggle("active");
+  };
   return (
     <div className="home">
       <div className="home__container">
@@ -150,7 +175,7 @@ function Header() {
                 </div>
                 <Link to="/">Movie108</Link>
               </h1>
-              <div className="right-header">
+              <RightHeader className="right-header">
                 <SearchBox>
                   <input
                     type="text"
@@ -161,26 +186,9 @@ function Header() {
                   />
                   <ion-icon
                     name="arrow-back-outline"
-                    onClick={() => {
-                      document
-                        .querySelector("#query")
-                        .classList.toggle("active");
-                      document
-                        .querySelector("#searchBtn")
-                        .classList.toggle("active");
-                    }}
+                    onClick={() => activeSearch()}
                   ></ion-icon>
-                  <button
-                    id="searchBtn"
-                    onClick={() => {
-                      document
-                        .querySelector("#query")
-                        .classList.toggle("active");
-                      document
-                        .querySelector("#searchBtn")
-                        .classList.toggle("active");
-                    }}
-                  >
+                  <button id="searchBtn" onClick={() => activeSearch()}>
                     <ion-icon name="search-outline"></ion-icon>
                   </button>
                 </SearchBox>
@@ -204,7 +212,7 @@ function Header() {
                     </Button>
                   </Link>
                 </div>
-              </div>
+              </RightHeader>
             </div>
           </div>
         </header>

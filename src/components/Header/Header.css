@@ -122,20 +122,6 @@ header .heading h1 {
   background: rgb(var(--dark-color));
 }
 
-.right-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-grow: 1;
-}
-
-.right-header .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
 @media screen and (max-width: 950px) {
   header > .wrapper {
     flex-direction: column;
@@ -153,13 +139,5 @@ header .heading h1 {
 
   .modeToggler {
     margin-block: 0.5rem;
-  }
-
-  .right-header {
-    gap: 0;
-  }
-  
-  .right-header .buttons {
-    display: none;
   }
 }
