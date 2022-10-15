@@ -1,5 +1,5 @@
 import "./Header.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Menu from "./Menu/Menu";
@@ -133,7 +133,7 @@ const SearchBox = styled.div`
 `;
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   let menuItems = [
     "Release Calendar",
     "Top 250 Movies",

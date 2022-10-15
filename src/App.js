@@ -9,20 +9,17 @@ import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const location = useLocation();
-  let changeTitle = () => {
+  useEffect(() => {
+    localStorage.getItem("mode") === "light" &&
+      document.body.classList.add("light");
     if (location.pathname === "/") {
-      document.title = "Movie108 | Home";
+      document.title = "Home | Movie108";
     } else {
       let pathname =
         location.pathname.slice(1).charAt(0).toUpperCase() +
         location.pathname.slice(2);
-      document.title = "Movie108 | " + pathname;
+      document.title = pathname + " | Movie108";
     }
-  };
-  useEffect(() => {
-    localStorage.getItem("mode") === "light" &&
-      document.body.classList.add("light");
-    changeTitle();
   }, [location]);
   return (
     <div className="App">
