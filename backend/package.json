@@ -1,0 +1,19 @@
+{
+  "name": "movie108-backend",
+  "version": "1.0.0",
+  "description": "Movie108: Ratings, Reviews, and Where to Watch the Best Movies & TV Shows",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
