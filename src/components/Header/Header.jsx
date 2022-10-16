@@ -1,9 +1,119 @@
-import "./Header.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import moon from "./../../assets/moon.svg";
+import sun from "./../../assets/sun.svg";
+import menu from "./../../assets/menu.svg";
 import Menu from "./Menu/Menu";
 import Button from "./../Button/Button";
+
+const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-block: 1rem;
+  background: rgb(var(--dark-color));
+  z-index: 1;
+  transition: all 0.15s ease;
+  .light & {
+    background: rgb(var(--light-color));
+  }
+  & > div {
+    margin-inline: auto;
+    width: 90%;
+  }
+  & > .wrapper > .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  & .heading h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-shadow: 0 0 20px rgba(var(--light-color), 0.25);
+  }
+  & .modeToggler {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+    z-index: 1;
+    border-radius: 50%;
+    transition: all 0.15s ease;
+    &:hover {
+      backdrop-filter: invert(0.1);
+    }
+    .light &:hover {
+      backdrop-filter: brightness(0.9);
+    }
+    & .svg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background: rgb(var(--light-color));
+      mask: url(${moon}) no-repeat center;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      &:active {
+        scale: 1.15;
+      }
+      &:hover {
+        filter: brightness(0.8);
+      }
+      .light &:hover {
+        filter: invert(0.2);
+      }
+      .light & {
+        background: rgb(var(--dark-color));
+        mask: url(${sun}) no-repeat center;
+      }
+    }
+  }
+  & .menu-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+    padding: 0.25rem;
+    z-index: 1;
+    border-radius: 50%;
+    transform: rotate(0deg);
+    transition: all 0.15s ease;
+    &:active {
+      transform: rotate(180deg);
+    }
+    .light &:hover {
+      backdrop-filter: brightness(0.9);
+    }
+    &:hover {
+      backdrop-filter: invert(0.1);
+    }
+    & .svg {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background: rgb(var(--light-color));
+      mask: url(${menu}) no-repeat center;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      &:hover {
+        filter: brightness(0.8);
+      }
+      .light &:hover {
+        filter: invert(0.2);
+      }
+      .light & {
+        background: rgb(var(--dark-color));
+      }
+    }
+  }
+  & .wrapper > .heading {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
 
 const RightHeader = styled.div`
   display: flex;
@@ -19,7 +129,7 @@ const RightHeader = styled.div`
   @media screen and (max-width: 950px) {
     & {
       gap: 0;
-      & .buttons{
+      & .buttons {
         display: none;
       }
     }
@@ -161,7 +271,7 @@ function Header() {
   return (
     <div className="home">
       <div className="home__container">
-        <header>
+        <StyledHeader>
           <div className="wrapper">
             <div className="heading">
               <h1>
@@ -215,7 +325,7 @@ function Header() {
               </RightHeader>
             </div>
           </div>
-        </header>
+        </StyledHeader>
         <Menu
           menuItems={menuItems}
           menuOpen={menuOpen}
