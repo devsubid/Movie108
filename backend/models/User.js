@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
   name: {
@@ -8,6 +9,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    // unique: true,
   },
   password: {
     type: String,
@@ -18,5 +20,6 @@ const userSchema = new Schema({
     default: Date.now,
   },
 });
-
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+User.createIndexes();
+module.exports = User;

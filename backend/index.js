@@ -1,8 +1,11 @@
 const express = require("express");
 const connectToMongo = require("./db");
 
+connectToMongo();
 const app = express();
-const port = 3000;
+const port = 5000;
+
+app.use(express.json());
 
 // routes
 app.use("/api/users", require("./routes/users"));
@@ -16,4 +19,3 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 
-connectToMongo();
