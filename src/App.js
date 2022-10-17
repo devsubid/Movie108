@@ -29,8 +29,14 @@ body {
 }
 .container {
   margin-inline: auto;
-  width: min(90%, 50rem);
-  padding-block: 2rem;
+  width: min(90%, 70rem);
+  padding-block: 1rem;
+  margin-top: 4.5rem;
+  @media screen and (min-width: 50rem) {
+    & {
+      margin-top: 5rem;
+    }
+  }
 }
 .light {
   background-color: rgb(var(--light-color));
@@ -53,6 +59,10 @@ body {
 .light ::-webkit-scrollbar-thumb {
   background: rgb(var(--dark-color), 0.5);
 }
+.light ::selection {
+  color: rgb(var(--light-color));
+  background: rgb(var(--primary-color));
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -74,7 +84,7 @@ a {
   outline: none;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid rgb(255 255 255 / 30%);
+  border: 1px solid rgb(var(--light-color), 0.3);
   background-color: transparent;
   color: rgb(var(--light-color));
   font-size: 1.15em;
@@ -91,12 +101,12 @@ a {
 }
 .light .form-group input {
   color: rgb(var(--dark-color));
-  border: 1px solid rgb(0 0 0 / 30%);
+  border: 1px solid rgb(var(--dark-color), 0.3);
   caret-color: rgb(var(--dark-color));
 }
 .light .form-group textarea {
   color: rgb(var(--dark-color));
-  border: 1px solid rgb(0 0 0 / 30%);
+  border: 1px solid rgb(var(--dark-color), 0.3);
   caret-color: rgb(var(--dark-color));
 }
 .light .form-group input::placeholder {

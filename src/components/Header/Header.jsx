@@ -126,7 +126,7 @@ const RightHeader = styled.div`
     justify-content: space-between;
     gap: 1rem;
   }
-  @media screen and (max-width: 950px) {
+  @media screen and (max-width: 50rem) {
     & {
       gap: 0;
       & .buttons {
@@ -154,22 +154,25 @@ const SearchBox = styled.div`
     font-size: 1rem;
     font-weight: 300;
     transition: all 0.15s ease;
-  }
-  & input:focus {
-    width: 90%;
-    border: 1px solid rgb(var(--primary-color));
-  }
-  & input::placeholder {
-    color: rgb(var(--light-color), 0.5);
-    transition: all 0.15 ease;
-  }
-  .light & input {
-    color: rgb(var(--dark-color));
-    border: 1px solid rgb(var(--dark-color), 0.5);
-    caret-color: rgb(var(--dark-color));
-  }
-  .light & input::placeholder {
-    color: rgb(var(--dark-color));
+    &:focus {
+      width: 90%;
+      border: 1px solid rgb(var(--primary-color));
+    }
+    &::placeholder {
+      color: rgb(var(--light-color), 0.5);
+      transition: all 0.15 ease;
+    }
+    .light & {
+      color: rgb(var(--dark-color));
+      border: 1px solid rgb(var(--dark-color), 0.5);
+      caret-color: rgb(var(--dark-color));
+      &:focus{
+        border-color: rgb(var(--primary-color));
+      }
+    }
+    .light &::placeholder {
+      color: rgb(var(--dark-color));
+    }
   }
   & form {
     padding: 0;
@@ -182,13 +185,18 @@ const SearchBox = styled.div`
     background: transparent;
     outline: none;
     border: none;
-    box-shadow: none;
     display: flex;
     align-items: center;
+    &:hover {
+      box-shadow: none;
+    }
     & ion-icon {
       font-size: 1.5rem;
       color: rgb(var(--light-color), 0.5);
       transition: all 0.15s ease;
+      .light & {
+        color: rgb(var(--dark-color), 0.5);
+      }
     }
   }
   & > ion-icon {
@@ -204,6 +212,7 @@ const SearchBox = styled.div`
     & button {
       position: static;
       z-index: 3;
+      margin-left: auto;
     }
     & button.active {
       position: absolute;
@@ -225,6 +234,10 @@ const SearchBox = styled.div`
         width: 100%;
         height: 100%;
         padding-inline-start: 4rem;
+        border-radius: 0;
+        .light & {
+          background-color: rgb(var(--light-color));
+        }
       }
       &.active + ion-icon {
         z-index: 3;
@@ -234,11 +247,11 @@ const SearchBox = styled.div`
         top: 0;
         bottom: 0;
         margin-block: auto;
+        .light & {
+          color: rgb(var(--dark-color), 0.5);
+        }
       }
     }
-  }
-  & input:focus + button ion-icon {
-    color: rgb(var(--light-color), 0.8);
   }
 `;
 

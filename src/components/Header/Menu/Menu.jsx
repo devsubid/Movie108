@@ -30,7 +30,6 @@ const StyledMenu = styled.nav`
   }
   @media screen and (min-width: 50rem) {
     & {
-      padding-block: 1rem;
       margin-top: 5rem;
       height: calc(100vh - 5rem);
     }
