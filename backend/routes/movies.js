@@ -5,9 +5,9 @@ const movie = require("../models/Movie");
 const router = express.Router();
 
 // GET all movies using GET "/api/movies/fetchmovies". Login required
-router.get("/fetchmovies", fetchUser, async (req, res) => {
+router.get("/fetchmovies", async (req, res) => {
   try {
-    const movies = await movie.find({ user: req.user.id });
+    const movies = await movie.find();
     res.json(movies);
   } catch (error) {
     console.error(error.message);
