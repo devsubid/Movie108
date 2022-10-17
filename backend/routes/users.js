@@ -134,4 +134,17 @@ router.post("/getuser", fetchUser, async (req, res) => {
   }
 });
 
+// DELETE USER ROUTE: Delete a user using POST "/api/users/deleteuser"
+router.post("/deleteuser", fetchUser, async (req, res) => {
+  try {
+    // Get user details from the database
+    const userId = req.user.id;
+    const user = await User.findByIdAndDelete(userId);
+    res.json({ success: true, msg: "User has been deleted successfully", user });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error!\nSomething went wrong!");
+  }
+});
+
 module.exports = router;
