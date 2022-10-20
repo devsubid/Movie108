@@ -3,10 +3,17 @@ import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 
 const CarouselStyle = styled.div`
-  .carousel-item img {
+  & .thumbs {
+    display: flex;
+    justify-content: center;
+  }
+  & .thumb {
+    border-radius: 0.25rem;
+  }
+  & .carousel-item img {
     object-fit: contain;
   }
-  .carousel-caption {
+  & .carousel-caption {
     position: absolute;
     bottom: 1rem;
     left: 0;
@@ -21,7 +28,15 @@ const CarouselStyle = styled.div`
 function IndividualIntervalsExample({ movies }) {
   return (
     <CarouselStyle className="container">
-      <Carousel autoPlay centerMode infiniteLoop swipeable width="100%" statusFormatter={()=>{}} interval={1000}>
+      <Carousel
+        autoPlay
+        centerMode
+        infiniteLoop
+        swipeable
+        width="100%"
+        interval={2000}
+        statusFormatter={() => {}}
+      >
         {movies.map((movie, index) => (
           <div key={index}>
             <img
