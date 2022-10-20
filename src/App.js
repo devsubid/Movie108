@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
+import Footer from "./components/Footer/Footer";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -163,6 +164,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
