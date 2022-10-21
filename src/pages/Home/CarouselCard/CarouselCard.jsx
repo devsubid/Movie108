@@ -65,7 +65,6 @@ function CarouselCard({ movies }) {
             <img src={movie.image} alt={movie.title} />
             <div className="card-body">
               <h3>{movie.title}</h3>
-              <p>{movie.fullTitle}</p>
             </div>
           </div>
         ))}

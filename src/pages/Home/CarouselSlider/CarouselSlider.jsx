@@ -46,7 +46,6 @@ function IndividualIntervalsExample({ movies }) {
             />
             <div className="carousel-caption">
               <h3>{movie.title}</h3>
-              <p>{movie.fullTitle}</p>
             </div>
           </div>
         ))}
