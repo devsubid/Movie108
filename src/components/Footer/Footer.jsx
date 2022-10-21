@@ -6,6 +6,7 @@ const FooterElement = styled.footer`
   padding: 1rem;
   text-align: center;
   margin-top: 0;
+  transition: all 0.15s ease;
   & .container {
     margin-top: 0;
   }
@@ -14,14 +15,17 @@ const FooterElement = styled.footer`
     width: 100%;
     gap: 5rem;
     @media screen and (max-width: 50rem) {
-        flex-direction: column;
-        gap: 2rem;
+      flex-direction: column;
+      gap: 2rem;
     }
     & .col {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       text-align: left;
+      @media screen and (max-width: 50rem) {
+        text-align: center;
+      }
       & .col-header {
         & h2 {
           font-size: 1.5rem;
@@ -31,6 +35,9 @@ const FooterElement = styled.footer`
         & span {
           font-size: 1rem;
           color: rgb(var(--light-color), 0.5);
+          .light & {
+            color: rgb(var(--dark-color), 0.5);
+          }
           text-transform: uppercase;
           font-weight: 600;
         }
@@ -42,6 +49,9 @@ const FooterElement = styled.footer`
             font-size: 0.9rem;
             color: rgb(var(--light-color), 0.5);
             font-weight: 300;
+            .light & {
+              color: rgb(var(--dark-color), 0.5);
+            }
           }
         }
       }

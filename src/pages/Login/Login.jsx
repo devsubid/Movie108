@@ -6,7 +6,6 @@ import Button from "../../components/Button/Button";
 const LoginDiv = styled.div`
   display: grid;
   place-items: center;
-  min-height: calc(100vh - 4rem);
   & .login__container {
     display: flex;
     flex-direction: column;
@@ -17,10 +16,6 @@ const LoginDiv = styled.div`
     border-radius: 10px;
     border: 1px solid rgb(var(--primary-color), 0.5);
     box-shadow: 0 0 20px rgb(var(--primary-color), 0.5);
-    margin-block: 5rem 1rem;
-    @media screen and (max-width: 950px) {
-      margin-block: 4rem 1rem;
-    }
     & h1 {
       align-self: flex-start;
       margin-bottom: 20px;

@@ -6,6 +6,15 @@ const Cards = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
   overflow-x: hidden;
+  transition: all 0.5s ease;
+  &:hover > .card {
+    transition: all 0.5s ease;
+    opacity: 0.8;
+  }
+  &:hover > .card:hover {
+    transition: all 0.5s ease;
+    opacity: 1;
+  }
   .card {
     position: relative;
     border-radius: 0.25rem;
@@ -13,7 +22,7 @@ const Cards = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(var(--light-color), 0.15);
-    transition: all 0.15s ease;
+    transition: all 0.5s ease;
     .light & {
       border-color: rgba(var(--dark-color), 0.15);
     }
@@ -27,6 +36,7 @@ const Cards = styled.div`
       transform: scale(1.1);
     }
     & .card-body {
+      color: rgb(var(--light-color));
       position: absolute;
       bottom: 0;
       left: 0;

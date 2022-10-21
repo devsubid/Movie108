@@ -68,6 +68,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+a:hover{
+  text-decoration: underline;
+}
 .form-group {
   width: 100%;
   display: flex;
