@@ -1,10 +1,11 @@
 const express = require("express");
-const { check, validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 const fetchUser = require("../middleware/fetchUser");
 const movie = require("../models/Movie");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
+const path = require("path");
 
 const Storage = multer.diskStorage({
   destination: "Images/",
@@ -43,7 +44,9 @@ router.post("/add", fetchUser, async (req, res) => {
         rating,
         ratingCount,
         image: {
-          data: fs.readFileSync("Images/" + req.file.filename),
+          data: fs.readFileSync(
+            path.join(__dirname + "/../Images/" + req.file.filename)
+          ),
           contentType: "image/jpeg,image/jpg,image/png",
         },
       });

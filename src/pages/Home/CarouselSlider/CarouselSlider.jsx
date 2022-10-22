@@ -53,7 +53,7 @@ function IndividualIntervalsExample({ movies }) {
             <div key={index}>
               <div className="imgContainer">
                 <img
-                  src={`data:image/png;base64,${base64String}`}
+                  src={`data:image/jpg;base64,${base64String}`}
                   alt={movie.title}
                 />
               </div>
