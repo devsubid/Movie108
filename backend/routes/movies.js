@@ -3,6 +3,18 @@ const { check, validationResult } = require("express-validator");
 const fetchUser = require("../middleware/fetchUser");
 const movie = require("../models/Movie");
 const router = express.Router();
+const multer = require("multer");
+const fs = require("fs");
+
+const Storage = multer.diskStorage({
+  destination: "Images/",
+  filename: (req, file, callback) => {
+    console.log(file);
+    callback(null, Date.now() + file.originalname);
+  },
+});
+
+const upload = multer({ storage: Storage }).single("image");
 
 // GET all movies using GET "/api/movies/fetchmovies". Login required
 router.get("/fetchmovies", async (req, res) => {
@@ -16,35 +28,32 @@ router.get("/fetchmovies", async (req, res) => {
 });
 
 // POST a movie using POST "/api/movies/add". Login required
-router.post(
-  "/add",
-  fetchUser,
-  [
-    check("title", "Title is required").isLength({ min: 1 }),
-    check("fullTitle", "Full title is required").isLength({ min: 1 }),
-    check("image", "Image is required").isLength({ min: 1 }),
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+router.post("/add", fetchUser, async (req, res) => {
+  upload(req, res, async (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err);
     }
-    const { title, fullTitle, year, image } = req.body;
+    const { title, description, date, rating, ratingCount } = req.body;
     try {
       let movieVar = await movie.create({
-        user: req.user.id,
         title,
-        fullTitle,
-        year,
-        image,
+        description,
+        date,
+        rating,
+        ratingCount,
+        image: {
+          data: fs.readFileSync("Images/" + req.file.filename),
+          contentType: "image/jpeg,image/jpg,image/png",
+        },
       });
       res.json(movieVar);
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal Server Error");
     }
-  }
-);
+  });
+});
 
 // PUT a movie using PUT "/api/movies/update". Login required
 router.put("/update/:id", fetchUser, async (req, res) => {
@@ -52,7 +61,7 @@ router.put("/update/:id", fetchUser, async (req, res) => {
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const { title, fullTitle, year, image } = req.body;
+  const { title, year, image } = req.body;
   try {
     let movieVar = await movie.findById(req.params.id);
     if (!movieVar) {
@@ -66,7 +75,6 @@ router.put("/update/:id", fetchUser, async (req, res) => {
       {
         $set: {
           title,
-          fullTitle,
           year,
           image,
         },
@@ -86,9 +94,6 @@ router.delete("/delete/:id", fetchUser, async (req, res) => {
     let movieVar = await movie.findById(req.params.id);
     if (!movieVar) {
       return res.status(404).json({ Success: false, msg: "Not Found" });
-    }
-    if (movieVar.user.toString() !== req.user.id) {
-      return res.status(401).json({ Success: false, msg: "Not Allowed" });
     }
     movieVar = await movie.findByIdAndDelete(req.params.id);
     res.json({ Success: true, msg: "Movie has been deleted", movieVar });

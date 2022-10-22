@@ -56,18 +56,28 @@ function CarouselCard({ movies }) {
   return (
     <div className="container">
       <Cards>
-        {movies.map((movie, index) => (
-          <div
-            className="card"
-            key={index}
-            style={{ width: "100%", height: "200px" }}
-          >
-            <img src={movie.image} alt={movie.title} />
-            <div className="card-body">
-              <h3>{movie.title}</h3>
+        {movies.map((movie, index) => {
+          const base64String = btoa(
+            String.fromCharCode(...new Uint8Array(movie.image.data.data))
+          );
+          return (
+            <div
+              className="card"
+              key={index}
+              style={{ width: "100%", height: "200px" }}
+            >
+              <img
+                src={`
+                data:image/png;base64,${base64String}
+              `}
+                alt={movie.title}
+              />
+              <div className="card-body">
+                <h3>{movie.title}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Cards>
     </div>
   );

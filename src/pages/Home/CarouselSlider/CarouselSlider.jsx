@@ -10,7 +10,13 @@ const CarouselStyle = styled.div`
   & .thumb {
     border-radius: 0.25rem;
   }
-  & .carousel-item img {
+  & .imgContainer {
+    height: 25rem;
+    width: auto;
+    overflow: hidden;
+  }
+  & .carousel .slide img {
+    width: 100%;
     object-fit: contain;
   }
   & .carousel-caption {
@@ -34,21 +40,29 @@ function IndividualIntervalsExample({ movies }) {
         infiniteLoop
         swipeable
         width="100%"
+        showArrows={true}
+        showThumbs={true}
         interval={2000}
         statusFormatter={() => {}}
       >
-        {movies.map((movie, index) => (
-          <div key={index}>
-            <img
-              className="d-block w-100"
-              src={movie.image}
-              alt="First slide"
-            />
-            <div className="carousel-caption">
-              <h3>{movie.title}</h3>
+        {movies.map((movie, index) => {
+          const base64String = btoa(
+            String.fromCharCode(...new Uint8Array(movie.image.data.data))
+          );
+          return (
+            <div key={index}>
+              <div className="imgContainer">
+                <img
+                  src={`data:image/png;base64,${base64String}`}
+                  alt={movie.title}
+                />
+              </div>
+              <div className="carousel-caption">
+                <h3>{movie.title}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </Carousel>
     </CarouselStyle>
   );

@@ -6,7 +6,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
   text-align: center;
   font-size: 2rem;
@@ -23,7 +22,7 @@ const Container = styled.div`
 
 function NotFound() {
   return (
-    <Container>
+    <Container className="container">
       <h2>404</h2>
       <p>Page Not Found</p>
     </Container>
