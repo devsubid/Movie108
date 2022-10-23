@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./../../Button/Button";
 
 const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 5.5rem);
+  height: calc(100vh - 4.5rem);
   width: 18rem;
   background-color: rgb(var(--dark-color));
   position: fixed;
@@ -20,7 +20,7 @@ const StyledMenu = styled.nav`
   opacity: 0;
   transform: translateX(-100%);
   transition: all 0.15s ease;
-  z-index: 1;
+  z-index: 2;
   &.active {
     transform: translateX(0);
     opacity: 1;
@@ -33,6 +33,10 @@ const StyledMenu = styled.nav`
       margin-top: 5rem;
       height: calc(100vh - 5rem);
     }
+  }
+  & a:hover {
+    color: inherit;
+    text-decoration: none;
   }
   & .menu-item {
     position: relative;
@@ -57,34 +61,55 @@ const StyledMenu = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    @media screen and (min-width: 950px) {
+    transition: all 0.15s ease;
+    @media screen and (min-width: 50rem) {
       & {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
       }
     }
   }
 `;
 
 function Menu({ menuItems, menuOpen, setMenuOpen }) {
+  const location = useLocation();
   let handleMenuItem = (e) => {
     document.querySelector(".menu-item.active") &&
       document.querySelector(".menu-item.active").classList.remove("active");
     e.target.classList.add("active");
     setMenuOpen(false);
   };
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
   return (
     <StyledMenu className={`menu ${menuOpen && "active"}`} role="menu">
       {menuItems.map((item, index) => (
-        <div
-          className={`menu-item ${!index && "active"}`}
-          role="menuitem"
-          key={item}
-          onClick={(e) => {
-            handleMenuItem(e);
-          }}
+        <Link
+          to={
+            "/" +
+            (item.toLowerCase() === "home"
+              ? ""
+              : item.toLowerCase().replace(" ", ""))
+          }
         >
-          {item}
-        </div>
+          <div
+            className={`menu-item ${
+              "/" +
+                (item.toLowerCase() === "home"
+                  ? ""
+                  : item.toLowerCase().replace(" ", "")) ===
+                location.pathname && "active"
+            }`}
+            role="menuitem"
+            key={index}
+            onClick={(e) => {
+              handleMenuItem(e);
+            }}
+          >
+            {item}
+          </div>
+        </Link>
       ))}
       <div
         className="menu-item menu-item--button"
@@ -93,16 +118,31 @@ function Menu({ menuItems, menuOpen, setMenuOpen }) {
           handleMenuItem(e);
         }}
       >
-        <Link to="/login">
-          <Button className="secondary" btnProperty="small">
-            Login
+        {!localStorage.getItem("token") ? (
+          <>
+            <Link to="/login">
+              <Button className="secondary" btnProperty="small secondary">
+                Login
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button className="primary" btnProperty="small primary">
+                Sign Up
+              </Button>
+            </Link>
+          </>
+        ) : (
+          <Button
+            className="primary"
+            btnProperty="small primary"
+            onClick={() => {
+              localStorage.removeItem("token");
+              window.location.reload();
+            }}
+          >
+            Logout
           </Button>
-        </Link>
-        <Link to="/signup">
-          <Button className="primary" btnProperty="small primary">
-            Sign Up
-          </Button>
-        </Link>
+        )}
       </div>
     </StyledMenu>
   );

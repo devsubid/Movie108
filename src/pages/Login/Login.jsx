@@ -74,6 +74,13 @@ function Login() {
                     title: "Success",
                     accent: "tick",
                     body: "Login successful",
+                    footer: [
+                      {
+                        text: "Okay",
+                        type: "close",
+                        accent: "info",
+                      },
+                    ],
                   });
                   navigate("/");
                 })
@@ -83,6 +90,13 @@ function Login() {
                     title: "Error",
                     accent: "cross",
                     body: err.message,
+                    footer: [
+                      {
+                        text: "Okay",
+                        type: "close",
+                        accent: "danger",
+                      },
+                    ],
                   }); // setModal
                 });
             }}

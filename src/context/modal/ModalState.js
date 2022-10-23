@@ -7,7 +7,17 @@ const ModalState = (props) => {
     title: "",
     body: "",
     accent: "",
-    footer: [],
+    footer: [] /*
+    default footer is an array of objects with the following properties:
+    {
+      text: "Close",
+      type: "close",
+      accent: "info"
+    },{
+      text: "Ok",
+      type: "accept",
+      accent: "success"
+    } */,
   });
   const toggleModal = () => {
     setModal({ ...modal, isOpen: !modal.isOpen });

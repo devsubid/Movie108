@@ -166,7 +166,7 @@ const SearchBox = styled.div`
       color: rgb(var(--dark-color));
       border: 1px solid rgb(var(--dark-color), 0.5);
       caret-color: rgb(var(--dark-color));
-      &:focus{
+      &:focus {
         border-color: rgb(var(--primary-color));
       }
     }
@@ -257,18 +257,7 @@ const SearchBox = styled.div`
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  let menuItems = [
-    "Release Calendar",
-    "Top 250 Movies",
-    "Most Popular Movies",
-    "Browse Movies by Genre",
-    "Top Box Office",
-    "Showtimes & Tickets",
-    "Movie News",
-    "India Movie Spotlight",
-    "About Us",
-    "Contact Us",
-  ];
+  let menuItems = ["Home", "About Us", "Contact Us"];
   let changeMode = () => {
     let body = document.body;
     body.classList.toggle("light");
@@ -324,16 +313,34 @@ function Header() {
                   <div className="svg"></div>
                 </div>
                 <div className="buttons">
-                  <Link to="/login">
-                    <Button className="secondary" btnProperty="small secondary">
-                      Login
+                  {!localStorage.getItem("token") ? (
+                    <>
+                      <Link to="/login">
+                        <Button
+                          className="secondary"
+                          btnProperty="small secondary"
+                        >
+                          Login
+                        </Button>
+                      </Link>
+                      <Link to="/signup">
+                        <Button className="primary" btnProperty="small primary">
+                          Sign Up
+                        </Button>
+                      </Link>
+                    </>
+                  ) : (
+                    <Button
+                      className="primary"
+                      btnProperty="small primary"
+                      onClick={() => {
+                        localStorage.removeItem("token");
+                        window.location.reload();
+                      }}
+                    >
+                      Logout
                     </Button>
-                  </Link>
-                  <Link to="/signup">
-                    <Button className="primary" btnProperty="small primary">
-                      Sign Up
-                    </Button>
-                  </Link>
+                  )}
                 </div>
               </RightHeader>
             </div>

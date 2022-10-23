@@ -79,7 +79,7 @@ const ModalDiv = styled.div`
       flex-grow: 1;
       display: flex;
       align-items: flex-end;
-      width: 70%;
+      width: 100%;
       text-align: center;
     }
     & .buttons {
@@ -89,15 +89,24 @@ const ModalDiv = styled.div`
       justify-content: space-between;
       gap: 1rem;
       align-items: flex-end;
-      & .yes {
+      & .accept {
         padding: 0.75rem 1.5rem;
         border: none;
         border-radius: 0.5rem;
-        background-color: #d11a2a;
         color: rgb(var(--light-color));
         cursor: pointer;
         font-weight: bold;
         font-size: medium;
+        &.info {
+          background-color: currentColor;
+          color: rgb(var(--dark-color));
+        }
+        &.success {
+          background-color: green;
+        }
+        &.danger {
+          background-color: #d11a2a;
+        }
       }
       & .close {
         padding: 0.75rem 1.5rem;
@@ -131,9 +140,15 @@ const Modal = () => {
             </div>
           )}
           <div className="buttons">
-            <button className="close" onClick={modalContext.toggleModal}>
-              Ok
-            </button>
+            {modalContext.modal.footer.map((item, key) => (
+              <button
+                className={`${item.type} ${item.accent}`}
+                onClick={modalContext.toggleModal}
+                key={key}
+              >
+                {item.text}
+              </button>
+            ))}
           </div>
         </div>
       </div>

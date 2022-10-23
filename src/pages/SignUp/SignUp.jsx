@@ -90,6 +90,13 @@ function SignUp() {
                       title: "Success",
                       accent: "tick",
                       body: "Sign Up successful",
+                      footer: [
+                        {
+                          text: "Okay",
+                          type: "close",
+                          accent: "info",
+                        },
+                      ],
                     });
                     navigate("/");
                   })
@@ -99,6 +106,13 @@ function SignUp() {
                       title: "Error",
                       accent: "cross",
                       body: err.message,
+                      footer: [
+                        {
+                          text: "Okay",
+                          type: "close",
+                          accent: "danger",
+                        },
+                      ],
                     }); // setModal
                   });
               }

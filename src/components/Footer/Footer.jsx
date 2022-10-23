@@ -9,6 +9,13 @@ const FooterElement = styled.footer`
   transition: all 0.15s ease;
   & .container {
     margin-top: 0;
+    & .credits {
+      margin-top: 1rem;
+      color: rgb(var(--light-color), 0.5);
+      .light & {
+        color: rgb(var(--dark-color), 0.5);
+      }
+    }
   }
   & .row {
     display: flex;
@@ -81,7 +88,7 @@ const Footer = () => {
           </div>
           <div className="col">
             <div className="col-header">
-              <h2>Links</h2>
+              <h2>Social</h2>
             </div>
             <div className="col-body">
               <ul>
@@ -170,6 +177,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <div className="credits">© 2022 itsme-Subid, Inc.</div>
       </div>
     </FooterElement>
   );
