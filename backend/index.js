@@ -12,6 +12,7 @@ app.use(express.json({ limit: "5000mb" }));
 // routes
 app.use("/api/users", require("./routes/users"));
 app.use("/api/movies", require("./routes/movies"));
+app.use("/api/rating", require("./routes/rating"));
 
 app.get("/", (req, res) => {
   res.send("Hello! This express server is working!");
