@@ -40,20 +40,20 @@ function IndividualIntervalsExample({ movies }) {
         infiniteLoop
         swipeable
         width="100%"
-        showArrows={true}
-        showThumbs={true}
+        showArrows={false}
+        showThumbs={false}
         interval={2000}
         statusFormatter={() => {}}
       >
         {movies.map((movie, index) => {
-          const base64String = btoa(
-            String.fromCharCode(...new Uint8Array(movie.image.data.data))
-          );
+          // const base64String = btoa(
+          //   String.fromCharCode(...new Uint8Array(movie.image.data.data))
+          // );
           return (
             <div key={index}>
               <div className="imgContainer">
                 <img
-                  src={`data:image/jpg;base64,${base64String}`}
+                  // src={`data:image/jpg;base64,${base64String}`}
                   alt={movie.title}
                 />
               </div>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
+import ModalContext from "./../../context/modal/modalContext";
 
 const LoginDiv = styled.div`
   display: grid;
@@ -38,14 +39,52 @@ const LoginDiv = styled.div`
 
 function Login() {
   const navigate = useNavigate();
+  const modalContext = useContext(ModalContext);
   return (
     <div className="container">
       <LoginDiv>
         <div className="login__container">
           <h1>Login to Movie108</h1>
           <form
-            onSubmit={() => {
-              navigate("/");
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const host = "http://localhost:5000";
+              fetch(`${host}/api/users/login`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  email: e.target.email.value,
+                  password: e.target.password.value,
+                }),
+              })
+                .then(async (response) => {
+                  if (response.status === 400) {
+                    const err = (await response.json()).error;
+                    throw new Error(err);
+                  } else {
+                    return response.json();
+                  }
+                })
+                .then((data) => {
+                  localStorage.setItem("token", data.authToken);
+                  modalContext.setModal({
+                    isOpen: true,
+                    title: "Success",
+                    accent: "tick",
+                    body: "Login successful",
+                  });
+                  navigate("/");
+                })
+                .catch((err) => {
+                  modalContext.setModal({
+                    isOpen: true,
+                    title: "Error",
+                    accent: "cross",
+                    body: err.message,
+                  }); // setModal
+                });
             }}
           >
             <div className="form-group">

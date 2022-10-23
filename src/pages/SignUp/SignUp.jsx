@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
+import ModalContext from "./../../context/modal/modalContext";
 
 const SignUpDiv = styled.div`
   display: grid;
@@ -38,6 +39,7 @@ const SignUpDiv = styled.div`
 
 function SignUp() {
   const navigate = useNavigate();
+  const modalContext = useContext(ModalContext);
   const [status, setStatus] = useState("");
   const confirmPassword = () => {
     let password = document.getElementById("password").value;
@@ -50,18 +52,58 @@ function SignUp() {
       return true;
     }
   };
-  const SignUpSubmit = (e) => {
-    e.preventDefault();
-    if (confirmPassword()) {
-      navigate("/");
-    }
-  };
   return (
     <div className="container">
       <SignUpDiv>
         <div className="signUp__container">
           <h1>SignUp to Movie108</h1>
-          <form id="signUp__form" onSubmit={SignUpSubmit}>
+          <form
+            id="signUp__form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (confirmPassword()) {
+                const host = "http://localhost:5000";
+                fetch(`${host}/api/users/signup`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    name: e.target.name.value,
+                    email: e.target.email.value,
+                    password: e.target.password.value,
+                    confirmPassword: e.target.confirmPassword.value,
+                  }),
+                })
+                  .then(async (response) => {
+                    if (response.status === 400) {
+                      const err = (await response.json()).error;
+                      throw new Error(err);
+                    } else {
+                      return response.json();
+                    }
+                  })
+                  .then((data) => {
+                    localStorage.setItem("token", data.authToken);
+                    modalContext.setModal({
+                      isOpen: true,
+                      title: "Success",
+                      accent: "tick",
+                      body: "Sign Up successful",
+                    });
+                    navigate("/");
+                  })
+                  .catch((err) => {
+                    modalContext.setModal({
+                      isOpen: true,
+                      title: "Error",
+                      accent: "cross",
+                      body: err.message,
+                    }); // setModal
+                  });
+              }
+            }}
+          >
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -105,7 +147,7 @@ function SignUp() {
                 onKeyUp={confirmPassword}
                 autoComplete="off"
                 type="password"
-                placeholder="Enter your Confirm Password..."
+                placeholder="Confirm your Password..."
                 id="confirmPassword"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"

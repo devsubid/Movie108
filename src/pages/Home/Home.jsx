@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import MovieContext from "../../context/movies/movieContext";
-import CarouselCard from "./CarouselCard/CarouselCard";
+import Card from "./Card/Card";
 import Carousel from "./CarouselSlider/CarouselSlider";
 
 function Home() {
@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <Carousel movies={arrMovies} />
-      <CarouselCard movies={arrMovies} />
+      <Card movies={arrMovies} />
     </>
   );
 }

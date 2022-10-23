@@ -7,6 +7,7 @@ import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+import Modal from "./components/Modal/Modal";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -161,6 +162,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Header />
+      <Modal />
       <Routes>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />
