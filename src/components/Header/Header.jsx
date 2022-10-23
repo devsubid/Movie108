@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import moon from "./../../assets/moon.svg";
 import sun from "./../../assets/sun.svg";
 import menu from "./../../assets/menu.svg";
 import Menu from "./Menu/Menu";
 import Button from "./../Button/Button";
+import ModalContext from "./../../context/modal/modalContext";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -256,6 +257,8 @@ const SearchBox = styled.div`
 `;
 
 function Header() {
+  const navigate = useNavigate();
+  const modalContext = useContext(ModalContext);
   const [menuOpen, setMenuOpen] = useState(false);
   let menuItems = ["Home", "About Us", "Contact Us"];
   let changeMode = () => {
@@ -334,8 +337,95 @@ function Header() {
                       className="primary"
                       btnProperty="small primary"
                       onClick={() => {
-                        localStorage.removeItem("token");
-                        window.location.reload();
+                        const host = "http://localhost:5000";
+                        modalContext.setModal({
+                          isOpen: true,
+                          title: "Danger",
+                          accent: "cross",
+                          body: "Do you want to logout or delete account?",
+                          footer: [
+                            {
+                              text: "Logout",
+                              type: "accept",
+                              accent: "danger",
+                              action: () => {
+                                localStorage.removeItem("token");
+                                modalContext.setModal({
+                                  ...modalContext.modal,
+                                  isOpen: false,
+                                });
+                              },
+                            },
+                            {
+                              text: "Delete Account",
+                              type: "accept",
+                              accent: "danger",
+                              action: () => {
+                                fetch(`${host}/api/users/deleteuser`, {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    "auth-token": localStorage.getItem("token"),
+                                  },
+                                })
+                                  .then(async (response) => {
+                                    if (response.status === 200) {
+                                      return response.json();
+                                    } else {
+                                      const err = (await response.json()).error;
+                                      throw new Error(err);
+                                    }
+                                  })
+                                  .then((data) => {
+                                    localStorage.removeItem("token");
+                                    modalContext.setModal({
+                                      isOpen: true,
+                                      title: "Success",
+                                      accent: "tick",
+                                      body: "Account Delete successful",
+                                      footer: [
+                                        {
+                                          text: "Okay",
+                                          type: "accept",
+                                          accent: "success",
+                                          action: () => {
+                                            modalContext.setModal({
+                                              ...modalContext.modal,
+                                              isOpen: false,
+                                            });
+                                          },
+                                        },
+                                      ],
+                                    });
+                                    navigate("/");
+                                  })
+                                  .catch((err) => {
+                                    modalContext.setModal({
+                                      isOpen: true,
+                                      title: "Error",
+                                      accent: "cross",
+                                      body: err.message,
+                                      footer: [
+                                        {
+                                          text: "Okay",
+                                          type: "accept",
+                                          accent: "danger",
+                                          action: () => {
+                                            modalContext.setModal({
+                                              ...modalContext.modal,
+                                              isOpen: false,
+                                            });
+                                          },
+                                        },
+                                      ],
+                                    }); // setModal
+                                  });
+                              },
+                            },
+                          ],
+                        });
+                        // localStorage.removeItem("token");
+                        // window.location.reload();
                       }}
                     >
                       Logout

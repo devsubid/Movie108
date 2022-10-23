@@ -96,8 +96,14 @@ function SignUp() {
                       footer: [
                         {
                           text: "Okay",
-                          type: "close",
+                          type: "accept",
                           accent: "info",
+                          action: () => {
+                            modalContext.setModal({
+                              ...modalContext.modal,
+                              isOpen: false,
+                            });
+                          },
                         },
                       ],
                     });
@@ -112,8 +118,14 @@ function SignUp() {
                       footer: [
                         {
                           text: "Okay",
-                          type: "close",
+                          type: "accept",
                           accent: "danger",
+                          action: () => {
+                            modalContext.setModal({
+                              ...modalContext.modal,
+                              isOpen: false,
+                            });
+                          },
                         },
                       ],
                     }); // setModal

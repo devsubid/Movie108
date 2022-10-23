@@ -11,23 +11,30 @@ const ModalState = (props) => {
     default footer is an array of objects with the following properties:
     {
       text: "Close",
-      type: "close",
+      type: "accept",
       accent: "info"
+      action: () => {}
     },{
       text: "Ok",
       type: "accept",
       accent: "success"
+      action: () => {}
+    },
+    {
+      text: "Delete",
+      type: "accept",
+      accent: "danger"
+      action: () => {}
     } */,
   });
-  const toggleModal = () => {
-    setModal({ ...modal, isOpen: !modal.isOpen });
-  };
+  // const toggleModal = () => {
+  //   setModal({ ...modal, isOpen: !modal.isOpen });
+  // };
   return (
     <ModalContext.Provider
       value={{
         modal,
         setModal,
-        toggleModal,
       }}
     >
       {props.children}

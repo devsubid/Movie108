@@ -93,28 +93,18 @@ const ModalDiv = styled.div`
         font-weight: bold;
         font-size: medium;
         &.info {
-          background-color: currentColor;
+          background-color: rgb(var(--light-color));
           color: rgb(var(--dark-color));
+          .light & {
+            background-color: rgb(var(--dark-color));
+            color: rgb(var(--light-color));
+          }
         }
         &.success {
           background-color: green;
         }
         &.danger {
           background-color: #d11a2a;
-        }
-      }
-      & .close {
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 0.5rem;
-        background-color: rgb(var(--light-color));
-        color: rgb(var(--dark-color));
-        cursor: pointer;
-        font-weight: bold;
-        font-size: medium;
-        .light & {
-          background-color: rgb(var(--dark-color));
-          color: rgb(var(--light-color));
         }
       }
     }
@@ -138,7 +128,7 @@ const Modal = () => {
             {modalContext.modal.footer.map((item, key) => (
               <button
                 className={`${item.type} ${item.accent}`}
-                onClick={modalContext.toggleModal}
+                onClick={modalContext.modal.footer[key].action}
                 key={key}
               >
                 {item.text}

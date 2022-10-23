@@ -77,8 +77,14 @@ function Login() {
                     footer: [
                       {
                         text: "Okay",
-                        type: "close",
+                        type: "accept",
                         accent: "info",
+                        action: () => {
+                          modalContext.setModal({
+                            ...modalContext.modal,
+                            isOpen: false,
+                          });
+                        },
                       },
                     ],
                   });
@@ -93,8 +99,14 @@ function Login() {
                     footer: [
                       {
                         text: "Okay",
-                        type: "close",
+                        type: "accept",
                         accent: "danger",
+                        action: () => {
+                          modalContext.setModal({
+                            ...modalContext.modal,
+                            isOpen: false,
+                          });
+                        },
                       },
                     ],
                   }); // setModal
