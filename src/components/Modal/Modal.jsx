@@ -26,7 +26,6 @@ const ModalDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     width: min(30rem, 50%);
-    height: min(30rem, 50%);
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -76,10 +75,7 @@ const ModalDiv = styled.div`
       font-weight: 700;
     }
     & .modalBody {
-      flex-grow: 1;
-      display: flex;
-      align-items: flex-end;
-      width: 100%;
+      width: 90%;
       text-align: center;
     }
     & .buttons {
@@ -88,7 +84,6 @@ const ModalDiv = styled.div`
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      align-items: flex-end;
       & .accept {
         padding: 0.75rem 1.5rem;
         border: none;

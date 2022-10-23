@@ -79,9 +79,6 @@ function Menu({ menuItems, menuOpen, setMenuOpen }) {
     e.target.classList.add("active");
     setMenuOpen(false);
   };
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
   return (
     <StyledMenu className={`menu ${menuOpen && "active"}`} role="menu">
       {menuItems.map((item, index) => (
@@ -92,6 +89,7 @@ function Menu({ menuItems, menuOpen, setMenuOpen }) {
               ? ""
               : item.toLowerCase().replace(" ", ""))
           }
+          key={index}
         >
           <div
             className={`menu-item ${
@@ -102,7 +100,6 @@ function Menu({ menuItems, menuOpen, setMenuOpen }) {
                 location.pathname && "active"
             }`}
             role="menuitem"
-            key={index}
             onClick={(e) => {
               handleMenuItem(e);
             }}

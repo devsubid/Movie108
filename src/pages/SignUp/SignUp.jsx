@@ -33,6 +33,9 @@ const SignUpDiv = styled.div`
       gap: 1rem;
       padding-block: 1rem;
       width: 100%;
+      & button {
+        white-space: nowrap;
+      }
     }
   }
 `;
