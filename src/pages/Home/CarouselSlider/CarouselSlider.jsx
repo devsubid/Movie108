@@ -14,6 +14,8 @@ const CarouselStyle = styled.div`
     height: 25rem;
     width: auto;
     overflow: hidden;
+    display: grid;
+    place-content: center;
   }
   & .carousel .slide img {
     width: 100%;
@@ -46,14 +48,17 @@ function IndividualIntervalsExample({ movies }) {
         statusFormatter={() => {}}
       >
         {movies.map((movie, index) => {
-          // const base64String = btoa(
-          //   String.fromCharCode(...new Uint8Array(movie.image.data.data))
-          // );
+          const base64String = btoa(
+            movie.image.data.data.reduce(
+              (data, byte) => data + String.fromCharCode(byte),
+              ""
+            )
+          );
           return (
             <div key={index}>
               <div className="imgContainer">
                 <img
-                  // src={`data:image/jpg;base64,${base64String}`}
+                  src={`data:image/png;base64,${base64String}`}
                   alt={movie.title}
                 />
               </div>

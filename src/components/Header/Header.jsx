@@ -7,7 +7,6 @@ import menu from "./../../assets/menu.svg";
 import Menu from "./Menu/Menu";
 import Button from "./../Button/Button";
 import ModalContext from "./../../context/modal/modalContext";
-import SearchContext from "./../../context/searchParams/searchContext";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -258,7 +257,6 @@ const SearchBox = styled.form`
 `;
 
 function Header() {
-  const searchParams = useContext(SearchContext);
   const navigate = useNavigate();
   const modalContext = useContext(ModalContext);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -307,9 +305,6 @@ function Header() {
                     id="query"
                     autoComplete="off"
                     placeholder="Search"
-                    onChange={(e) => {
-                      searchParams.setSearch(e.target.value);
-                    }}
                   />
                   <ion-icon
                     name="arrow-back-outline"

@@ -23,7 +23,7 @@ router.get("/fetchmovies", async (req, res) => {
     const movies = await movie.find();
     res.json(movies);
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -42,7 +42,22 @@ router.get("/searchmovies/:text", async (req, res) => {
     }
     res.json(movies);
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// GET specific movie using GET "/api/movies/getmovie/:id". no Login required
+router.get("/getmovie/:id", async (req, res) => {
+  try {
+    const movieId = req.params.id;
+    const movies = await movie.findById(movieId);
+    if (!movies) {
+      return res.status(404).send("Not Found");
+    }
+    res.json(movies);
+  } catch (error) {
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -71,7 +86,7 @@ router.post("/add", fetchUser, async (req, res) => {
       });
       res.json(movieVar);
     } catch (error) {
-      console.error(error.message);
+      console.log(error.message);
       res.status(500).send("Internal Server Error");
     }
   });
@@ -105,7 +120,7 @@ router.put("/update/:id", fetchUser, async (req, res) => {
     );
     res.json({ movieVar });
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -120,7 +135,7 @@ router.delete("/delete/:id", fetchUser, async (req, res) => {
     movieVar = await movie.findByIdAndDelete(req.params.id);
     res.json({ Success: true, msg: "Movie has been deleted", movieVar });
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });

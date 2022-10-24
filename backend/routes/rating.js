@@ -12,7 +12,7 @@ router.get("/fetchrating/:id", fetchUser, async (req, res) => {
     });
     res.json(rating);
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -29,7 +29,7 @@ router.post("/add/:id", fetchUser, async (req, res) => {
     });
     res.json(ratingVar);
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });
@@ -64,7 +64,7 @@ router.put("/update/:id", fetchUser, async (req, res) => {
     );
     res.json({ newRating });
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
 });

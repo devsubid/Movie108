@@ -69,7 +69,7 @@ router.post(
           })
         );
     } catch {
-      console.error(err.message);
+      console.log(err.message);
       res.status(500).send("Internal Server Error!\nSomething went wrong!");
     }
   }
@@ -115,7 +115,7 @@ router.post(
       const authToken = jwt.sign(data, JWT_SECRET);
       res.json({ authToken });
     } catch {
-      console.error(err.message);
+      console.log(err.message);
       res.status(500).send("Internal Server Error!\nSomething went wrong!");
     }
   }
@@ -129,7 +129,7 @@ router.post("/getuser", fetchUser, async (req, res) => {
     const user = await User.findById(userId).select("-password");
     res.send(user);
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error!\nSomething went wrong!");
   }
 });
@@ -142,7 +142,7 @@ router.post("/deleteuser", fetchUser, async (req, res) => {
     const user = await User.findByIdAndDelete(userId);
     res.json({ success: true, msg: "User has been deleted successfully", user });
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
     res.status(500).send("Internal Server Error!\nSomething went wrong!");
   }
 });

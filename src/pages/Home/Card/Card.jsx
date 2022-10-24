@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Cards = styled.div`
   display: grid;
@@ -19,8 +20,9 @@ const Cards = styled.div`
     position: relative;
     border-radius: 0.25rem;
     overflow: hidden;
+    /* display: grid; */
     display: flex;
-    flex-direction: column;
+    place-content: center;
     border: 1px solid rgba(var(--light-color), 0.15);
     transition: all 0.5s ease;
     .light & {
@@ -58,25 +60,28 @@ function CarouselCard({ movies }) {
       <Cards>
         {movies.length ? (
           movies.map((movie, index) => {
-            // const base64String = btoa(
-            //   String.fromCharCode(...new Uint8Array(movie.image.data.data))
-            // );
+            const base64String = btoa(
+              movie.image.data.data.reduce(
+                (data, byte) => data + String.fromCharCode(byte),
+                ""
+              )
+            );
             return (
-              <div
-                className="card"
+              <Link
+                to={`/movie/${movie._id}`}
                 key={index}
-                style={{ width: "100%", height: "200px" }}
+                className="card"
               >
                 <img
-                  //   src={`
-                  //   data:image/png;base64,${base64String}
-                  // `}
+                  src={`
+                    data:image/png;base64,${base64String}
+                  `}
                   alt={movie.title}
                 />
                 <div className="card-body">
                   <h3>{movie.title}</h3>
                 </div>
-              </div>
+              </Link>
             );
           })
         ) : (

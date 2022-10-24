@@ -1,18 +1,18 @@
 import React, { useContext, useEffect } from "react";
 import MovieContext from "./../../context/movies/movieContext";
-import SearchContext from "./../../context/searchParams/searchContext";
 import Card from "./../Home/Card/Card";
+import { useParams } from "react-router-dom";
 const Search = () => {
   const movies = useContext(MovieContext);
-  const searchParams = useContext(SearchContext);
+  const { params } = useParams();
   useEffect(() => {
-    if (searchParams.search !== "") {
-      movies.searchMovies(searchParams.search);
+    if (params !== "") {
+      movies.searchMovies(params);
     } else {
       movies.getMovies();
     }
     // eslint-disable-next-line
-  }, [searchParams.search]);
+  }, [params]);
   let arrMovies = movies.movies;
   return <Card movies={arrMovies} />;
 };

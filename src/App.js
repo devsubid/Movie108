@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
 import Search from "./pages/Search/Search";
+import Movie from "./pages/Movie/Movie";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -181,7 +182,8 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/" element={<Home />} />
-        <Route path="/search/*" element={<Search />} />
+        <Route path="/movie/:movieId" element={<Movie />} />
+        <Route path="/search/:params" element={<Search />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
