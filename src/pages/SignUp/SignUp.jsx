@@ -65,7 +65,7 @@ function SignUp() {
             onSubmit={(e) => {
               e.preventDefault();
               if (confirmPassword()) {
-                const host = "http://localhost:5000";
+                const host = process.env.REACT_APP_SERVER_HOST_URL;
                 fetch(`${host}/api/users/signup`, {
                   method: "POST",
                   headers: {

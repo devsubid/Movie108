@@ -17,10 +17,29 @@ const Storage = multer.diskStorage({
 
 const upload = multer({ storage: Storage }).single("image");
 
-// GET all movies using GET "/api/movies/fetchmovies". Login required
+// GET all movies using GET "/api/movies/fetchmovies". no Login required
 router.get("/fetchmovies", async (req, res) => {
   try {
     const movies = await movie.find();
+    res.json(movies);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// GET search movies using GET "/api/movies/searchmovies/:text". no Login required
+router.get("/searchmovies/:text", async (req, res) => {
+  try {
+    const movies = await movie.find({
+      $or: [
+        { title: { $regex: req.params.text, $options: "i" } },
+        { description: { $regex: req.params.text, $options: "i" } },
+      ],
+    });
+    if (!movies) {
+      return res.status(404).send("Not Found");
+    }
     res.json(movies);
   } catch (error) {
     console.error(error.message);

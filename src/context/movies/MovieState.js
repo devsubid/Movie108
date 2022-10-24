@@ -2,7 +2,7 @@ import MovieContext from "./movieContext";
 import React, { useState } from "react";
 
 const MovieState = (props) => {
-  const host = "http://localhost:5000";
+  const host = process.env.REACT_APP_SERVER_HOST_URL;
   const fetchMovies = [];
   const [movies, setmovies] = useState(fetchMovies);
 
@@ -12,6 +12,18 @@ const MovieState = (props) => {
     const json = await response.json();
     console.log(json);
     setmovies(json);
+  };
+
+  // search movies
+  const searchMovies = async (text) => {
+    const response = await fetch(`${host}/api/movies/searchmovies/${text}`);
+    const status = response.status;
+    if (status === 404) {
+      setmovies([]);
+    } else {
+      const json = await response.json();
+      setmovies(json);
+    }
   };
 
   // Add Movie
@@ -60,9 +72,18 @@ const MovieState = (props) => {
     const data = await response.json();
     console.log(data);
   };
-  
+
   return (
-    <MovieContext.Provider value={{ movies, getMovies }}>
+    <MovieContext.Provider
+      value={{
+        movies,
+        getMovies,
+        searchMovies,
+        addMovie,
+        deleteMovie,
+        editMovie,
+      }}
+    >
       {props.children}
     </MovieContext.Provider>
   );

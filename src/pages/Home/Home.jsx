@@ -7,6 +7,7 @@ function Home() {
   const movies = useContext(MovieContext);
   useEffect(() => {
     movies.getMovies();
+    // eslint-disable-next-line
   }, []);
   let arrMovies = movies.movies;
   return (

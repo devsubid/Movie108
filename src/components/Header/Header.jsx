@@ -7,6 +7,7 @@ import menu from "./../../assets/menu.svg";
 import Menu from "./Menu/Menu";
 import Button from "./../Button/Button";
 import ModalContext from "./../../context/modal/modalContext";
+import SearchContext from "./../../context/searchParams/searchContext";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -137,7 +138,7 @@ const RightHeader = styled.div`
   }
 `;
 
-const SearchBox = styled.div`
+const SearchBox = styled.form`
   display: flex;
   place-content: center;
   font-size: 1.5rem;
@@ -257,6 +258,7 @@ const SearchBox = styled.div`
 `;
 
 function Header() {
+  const searchParams = useContext(SearchContext);
   const navigate = useNavigate();
   const modalContext = useContext(ModalContext);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -291,13 +293,23 @@ function Header() {
                 <Link to="/">Movie108</Link>
               </h1>
               <RightHeader className="right-header">
-                <SearchBox>
+                <SearchBox
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    navigate(
+                      "/search/" + document.querySelector("#query").value
+                    );
+                  }}
+                >
                   <input
                     type="text"
                     name="query"
                     id="query"
                     autoComplete="off"
                     placeholder="Search"
+                    onChange={(e) => {
+                      searchParams.setSearch(e.target.value);
+                    }}
                   />
                   <ion-icon
                     name="arrow-back-outline"
