@@ -11,7 +11,6 @@ const MovieState = (props) => {
       `${host}/api/movies/fetchmovies/pageno=${pageno}`
     );
     const json = await response.json();
-    console.log([...movies, ...json.movies]);
     setmovies([...movies, ...json.movies]);
     return json.totalPages;
   };

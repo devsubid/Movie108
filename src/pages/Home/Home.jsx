@@ -15,7 +15,6 @@ function Home() {
     if (isFirstRun.current) {
       loading.setLoading(1);
       movies.getMovies(page).then((pages) => {
-        console.log(pages);
         setPages(pages);
         loading.setLoading(0);
       });
@@ -24,7 +23,6 @@ function Home() {
     // eslint-disable-next-line
   }, []);
   let arrMovies = movies.movies;
-  console.log(arrMovies);
   return (
     <>
       {!loading.loading && arrMovies && (
@@ -40,7 +38,7 @@ function Home() {
             }}
             loader={<h4>Loading...</h4>}
           > */}
-            <Card movies={arrMovies} />
+          <Card movies={arrMovies} />
           {/* </InfiniteScroll> */}
         </>
       )}
