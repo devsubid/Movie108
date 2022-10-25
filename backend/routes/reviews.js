@@ -23,7 +23,6 @@ router.post("/add/:id", fetchUser, async (req, res) => {
     const { review } = req.body;
     let movieId = req.params.id;
     let user = await User.findById(req.user.id);
-    console.log(user.name);
     const reviewVar = await Review.create({
       user: req.user.id,
       userName: user.name,

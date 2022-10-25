@@ -1,41 +1,53 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
-import star from "./../../../assets/star.svg";
 import Modal from "../../../context/modal/modalContext";
 import { useNavigate } from "react-router-dom";
 
 const Stars = styled.div`
+  padding-block: 1rem;
   display: flex;
   gap: 1rem;
   justify-content: space-around;
-  & .star--container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 2.5rem;
+  color: rgb(var(--light-color), 0.5);
+  cursor: pointer;
+  transform: rotateY(180deg);
+  transition: all 0.15s ease;
+  & input {
+    display: none;
+  }
+  & label {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    cursor: pointer;
-    & .star {
-      width: 2.5rem;
-      height: 2.5rem;
-      background: green;
-      mask: url(${star}) no-repeat left;
-      mask-size: contain;
-      cursor: pointer;
+    transform: rotateY(180deg);
+    transition: all 0.15s ease;
+  }
+  & input:not(:checked) ~ label:hover,
+  & input:not(:checked) ~ label:hover ~ label {
+    color: #ffa41c;
+  }
+  & input:checked ~ label {
+    color: #ffa41c;
+  }
+
+  & .starText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--light-color));
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 50%;
+    p {
+      margin: 0;
     }
-    & .starText {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgb(var(--light-color));
-      font-size: 0.8rem;
-      font-weight: 600;
-      border-radius: 50%;
-      p {
-        margin: 0;
-      }
-      .light & {
-        color: rgb(var(--dark-color));
-      }
+    .light & {
+      color: rgb(var(--dark-color));
     }
   }
 `;
@@ -71,69 +83,85 @@ const StarRating = ({ movieId }) => {
       text: "Excellent",
     },
   ];
+  useEffect(
+    () => {
+      localStorage.getItem("token") &&
+        fetch(`${host}/api/rating/fetchuserrating/${movieId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById(data.rating).checked = true;
+          });
+    } /* eslint-disable-next-line react-hooks/exhaustive-deps */,
+    []
+  );
   return (
     <Stars>
-      {stars.map((star) => {
+      {stars.reverse().map((star) => {
         return (
-          <div
-            key={star.id}
-            className="star--container"
-            style={{ "--text": `${star.text}` }}
-            onClick={() => {
-              !localStorage.getItem("token")
-                ? modal.setModal({
-                    isOpen: true,
-                    title: "Error",
-                    accent: "cross",
-                    body: "Please login/signup to add a review",
-                    footer: [
-                      {
-                        text: "Login",
-                        type: "accept",
-                        accent: "info",
-                        action: () => {
-                          navigate("/login");
-                          modal.setModal({
-                            ...modal.modal,
-                            isOpen: false,
-                          });
+          <React.Fragment key={star.value}>
+            <input
+              type="radio"
+              name="star"
+              id={star.value}
+              onClick={() => {
+                !localStorage.getItem("token")
+                  ? modal.setModal({
+                      isOpen: true,
+                      title: "Error",
+                      accent: "cross",
+                      body: "Please login/signup to add a review",
+                      footer: [
+                        {
+                          text: "Login",
+                          type: "accept",
+                          accent: "info",
+                          action: () => {
+                            navigate("/login");
+                            modal.setModal({
+                              ...modal.modal,
+                              isOpen: false,
+                            });
+                          },
                         },
-                      },
-                      {
-                        text: "Sign Up",
-                        type: "accept",
-                        accent: "info",
-                        action: () => {
-                          navigate("/signup");
-                          modal.setModal({
-                            ...modal.modal,
-                            isOpen: false,
-                          });
+                        {
+                          text: "Sign Up",
+                          type: "accept",
+                          accent: "info",
+                          action: () => {
+                            navigate("/signup");
+                            modal.setModal({
+                              ...modal.modal,
+                              isOpen: false,
+                            });
+                          },
                         },
+                      ],
+                    }) // setModal
+                  : fetch(`${host}/api/rating/add/${movieId}`, {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                        "auth-token": localStorage.getItem("token"),
                       },
-                    ],
-                  }) // setModal
-                : fetch(`${host}/api/rating/add/${movieId}`, {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                      "auth-token": localStorage.getItem("token"),
-                    },
-                    body: JSON.stringify({
-                      rating: star.value,
-                    }),
-                  })
-                    .then((response) => response.json())
-                    .then((data) => {
-                      console.log(data);
+                      body: JSON.stringify({
+                        rating: star.value,
+                      }),
                     });
-            }}
-          >
-            <div className="star" style={{ background: star.color }}></div>
-            <div className="starText">
-              <p>{star.text}</p>
-            </div>
-          </div>
+              }}
+            />
+            <label htmlFor={star.value}>
+              <ion-icon name="star"></ion-icon>
+              <div className="starText">
+                <p>{star.text}</p>
+              </div>
+            </label>
+          </React.Fragment>
         );
       })}
     </Stars>

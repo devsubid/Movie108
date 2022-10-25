@@ -4,7 +4,7 @@ import styled from "styled-components";
 import star from "./../../assets/rating.png";
 import Button from "./../../components/Button/Button";
 import modalContext from "./../../context/modal/modalContext";
-import StarRating from './StarRating/StarRating';
+import StarRating from "./StarRating/StarRating";
 
 const MovieDiv = styled.div`
   & .movie--container {
@@ -116,8 +116,8 @@ const MovieDiv = styled.div`
 const Movie = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState(null);
+  const [rating, setRating] = useState(null);
   const modal = useContext(modalContext);
   const navigate = useNavigate();
   const host = process.env.REACT_APP_SERVER_HOST_URL;
@@ -142,10 +142,22 @@ const Movie = () => {
       setReviews(json);
     }
   };
+  const getRating = async (movieId) => {
+    const response = await fetch(`${host}/api/rating/fetchrating/${movieId}`);
+    const status = response.status;
+    if (status === 404 || status === 500) {
+      setRating(null);
+    } else {
+      const json = await response.json();
+      // setMovie((prev) => ({ ...prev, rating: json.rating }));
+      setRating(json);
+    }
+  };
   useEffect(
     () => {
       getMovie(movieId);
       getReviews(movieId);
+      getRating(movieId);
     } /* eslint-disable-next-line react-hooks/exhaustive-deps */,
     []
   );
@@ -159,7 +171,7 @@ const Movie = () => {
       )
     ));
   return (
-    <MovieDiv rating={movie && parseFloat(movie.rating)}>
+    <MovieDiv rating={rating && rating.avgRating[0].avgRating}>
       <div className="container">
         {movie && (
           <div className="movie--container">
@@ -175,8 +187,11 @@ const Movie = () => {
               <div className="movie--info-top">
                 <h1>{movie.title}</h1>
                 <div className="breadcrumbs">
-                  <div className="rating"></div>
-                  <div className="ratingCount">{movie.ratingCount} ratings</div>
+                  <div
+                    className="rating"
+                    title={`${rating && rating.avgRating[0].avgRating} Stars`}
+                  ></div>
+                  <div className="ratingCount">{rating.rating} ratings</div>
                 </div>
               </div>
               <div className="movie--info-description">
@@ -194,9 +209,7 @@ const Movie = () => {
                 <h3>Rate this movie</h3>
               </div>
               <div className="starRating--stars">
-                <StarRating
-                  movieId={movieId}
-                />
+                <StarRating movieId={movieId} />
               </div>
             </div>
             <form
