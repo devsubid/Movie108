@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import LoadingContext from "../../context/loading/loadingContext";
 import star from "./../../assets/rating.png";
 import Button from "./../../components/Button/Button";
 import modalContext from "./../../context/modal/modalContext";
@@ -16,7 +17,6 @@ const MovieDiv = styled.div`
       height: 100%;
       img {
         width: 100%;
-        /* height: 100%;  */
         object-fit: contain;
       }
     }
@@ -29,7 +29,10 @@ const MovieDiv = styled.div`
       & .movie--info-top {
         border-bottom: 1px solid rgba(var(--light-color), 0.15);
         padding-bottom: 1rem;
-        .breadcrumbs {
+        .light & {
+          border-color: rgba(var(--dark-color), 0.15);
+        }
+        & .breadcrumbs {
           display: flex;
           gap: 1rem;
           & .rating {
@@ -37,8 +40,16 @@ const MovieDiv = styled.div`
             background: linear-gradient(
               to right,
               #ffa41c 0% ${(props) => props.rating * 20}%,
-              rgb(var(--light-color)) ${(props) => props.rating * 20}% 100%
+              rgb(var(--light-color), 0.5) ${(props) => props.rating * 20}% 100%
             );
+            .light & {
+              background: linear-gradient(
+                to right,
+                #ffa41c 0% ${(props) => props.rating * 20}%,
+                rgb(var(--dark-color), 0.5) ${(props) => props.rating * 20}%
+                  100%
+              );
+            }
             mask: url(${star}) no-repeat left;
             mask-size: contain;
             cursor: pointer;
@@ -61,6 +72,9 @@ const MovieDiv = styled.div`
       padding: 1rem;
       border: 1px solid rgba(var(--light-color), 0.15);
       border-radius: 0.5rem;
+      .light & {
+        border-color: rgba(var(--dark-color), 0.15);
+      }
       &--header {
         display: flex;
         &-name {
@@ -70,6 +84,9 @@ const MovieDiv = styled.div`
           margin-left: auto;
           font-size: 0.8rem;
           color: rgba(var(--light-color), 0.5);
+          .light & {
+            color: rgba(var(--dark-color), 0.5);
+          }
         }
       }
       &--body {
@@ -108,6 +125,9 @@ const MovieDiv = styled.div`
       }
       & button {
         margin-left: auto;
+        @media screen and (max-width: 50rem) {
+          width: 100%;
+        }
       }
     }
   }
@@ -115,14 +135,16 @@ const MovieDiv = styled.div`
 
 const Movie = () => {
   const { movieId } = useParams();
+  const host = process.env.REACT_APP_SERVER_HOST_URL;
   const [movie, setMovie] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [rating, setRating] = useState(null);
   const modal = useContext(modalContext);
   const navigate = useNavigate();
-  const host = process.env.REACT_APP_SERVER_HOST_URL;
+  const loading = useContext(LoadingContext);
   // get movie by id
   const getMovie = async (movieId) => {
+    loading.setLoading(1);
     const response = await fetch(`${host}/api/movies/getmovie/${movieId}`);
     const status = response.status;
     if (status === 404 || status === 500) {
@@ -130,6 +152,7 @@ const Movie = () => {
     } else {
       const json = await response.json();
       setMovie(json);
+      loading.setLoading(0);
     }
   };
   const getReviews = async (movieId) => {
@@ -171,7 +194,11 @@ const Movie = () => {
       )
     ));
   return (
-    <MovieDiv rating={rating && rating.avgRating[0].avgRating}>
+    <MovieDiv
+      rating={
+        rating && rating.avgRating.length && rating.avgRating[0].avgRating
+      }
+    >
       <div className="container">
         {movie && (
           <div className="movie--container">
@@ -189,7 +216,11 @@ const Movie = () => {
                 <div className="breadcrumbs">
                   <div
                     className="rating"
-                    title={`${rating && rating.avgRating[0].avgRating} Stars`}
+                    title={`${
+                      rating &&
+                      rating.avgRating.length &&
+                      rating.avgRating[0].avgRating
+                    } Stars`}
                   ></div>
                   <div className="ratingCount">{rating.rating} ratings</div>
                 </div>

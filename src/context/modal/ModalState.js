@@ -27,9 +27,6 @@ const ModalState = (props) => {
       action: () => {}
     } */,
   });
-  // const toggleModal = () => {
-  //   setModal({ ...modal, isOpen: !modal.isOpen });
-  // };
   return (
     <ModalContext.Provider
       value={{

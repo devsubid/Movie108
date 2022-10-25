@@ -3,15 +3,17 @@ import React, { useState } from "react";
 
 const MovieState = (props) => {
   const host = process.env.REACT_APP_SERVER_HOST_URL;
-  const fetchMovies = [];
-  const [movies, setmovies] = useState(fetchMovies);
+  const [movies, setmovies] = useState([]);
 
   // Get all movies
-  const getMovies = async () => {
-    const response = await fetch(`${host}/api/movies/fetchmovies`);
+  const getMovies = async (pageno) => {
+    const response = await fetch(
+      `${host}/api/movies/fetchmovies/pageno=${pageno}`
+    );
     const json = await response.json();
-    console.log(json);
-    setmovies(json);
+    console.log([...movies, ...json.movies]);
+    setmovies([...movies, ...json.movies]);
+    return json.totalPages;
   };
 
   // search movies

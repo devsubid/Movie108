@@ -38,11 +38,11 @@ router.get("/fetchrating/:id", async (req, res) => {
 // ROUTE 2: Get user rating using: GET "/api/rating/fetchuserrating". Login required
 router.get("/fetchuserrating/:id", fetchUser, async (req, res) => {
   try {
-    const rating = await Rating.findOne({
+    const rating = await Rating.find({
       user: req.user.id,
       movieId: req.params.id,
     });
-    res.json({ rating: rating.rating });
+    res.json({ rating: rating });
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Internal Server Error");

@@ -18,10 +18,18 @@ const Storage = multer.diskStorage({
 const upload = multer({ storage: Storage }).single("image");
 
 // GET all movies using GET "/api/movies/fetchmovies". no Login required
-router.get("/fetchmovies", async (req, res) => {
+router.get("/fetchmovies/pageno=:page", async (req, res) => {
   try {
-    const movies = await movie.find();
-    res.json(movies);
+    const movies = await movie
+      .find()
+      .select("-__v -date -description")
+      .skip((req.params.page - 1) * 10)
+      .limit(10);
+    const totalPages = (await movie.countDocuments()) / 10;
+    res.json({
+      movies,
+      totalPages,
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Internal Server Error");
@@ -75,8 +83,6 @@ router.post("/add", fetchUser, async (req, res) => {
         title,
         description,
         date,
-        rating,
-        ratingCount,
         image: {
           data: fs.readFileSync(
             path.join(__dirname + "/../Images/" + req.file.filename)

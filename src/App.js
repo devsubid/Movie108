@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
+import Loading from "./components/Loading/Loading";
 import Search from "./pages/Search/Search";
 import Movie from "./pages/Movie/Movie";
 
@@ -178,6 +179,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Modal />
+      <Loading />
       <Routes>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />

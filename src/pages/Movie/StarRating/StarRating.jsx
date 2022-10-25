@@ -94,9 +94,11 @@ const StarRating = ({ movieId }) => {
           },
         })
           .then((response) => response.json())
-          .then((data) => {
-            document.getElementById(data.rating).checked = true;
-          });
+          .then(
+            (data) =>
+              data.rating.length &&
+              (document.getElementById(data.rating[0].rating).checked = true)
+          );
     } /* eslint-disable-next-line react-hooks/exhaustive-deps */,
     []
   );

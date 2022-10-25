@@ -9,6 +9,22 @@ const CarouselStyle = styled.div`
   }
   & .thumb {
     border-radius: 0.25rem;
+    border-color: rgb(var(--light-color), 0.5);
+    &:hover {
+      border-color: rgb(var(--light-color), 0.25);
+    }
+    &.selected {
+      border-color: rgb(var(--light-color));
+    }
+    .light & {
+      border-color: rgb(var(--dark-color), 0.5);
+      &:hover {
+        border-color: rgb(var(--dark-color), 0.25);
+      }
+      &.selected {
+        border-color: rgb(var(--dark-color));
+      }
+    }
   }
   & .imgContainer {
     height: 25rem;
@@ -16,10 +32,6 @@ const CarouselStyle = styled.div`
     overflow: hidden;
     display: grid;
     place-content: center;
-  }
-  & .carousel .slide img {
-    width: 100%;
-    object-fit: contain;
   }
   & .carousel-caption {
     position: absolute;
@@ -42,8 +54,8 @@ function IndividualIntervalsExample({ movies }) {
         infiniteLoop
         swipeable
         width="100%"
-        showArrows={false}
-        showThumbs={false}
+        showArrows={true}
+        showThumbs={true}
         interval={2000}
         statusFormatter={() => {}}
       >
@@ -56,6 +68,7 @@ function IndividualIntervalsExample({ movies }) {
           );
           return (
             <div key={index}>
+              <img style={{ display: "none" }} alt="" />
               <div className="imgContainer">
                 <img
                   src={`data:image/png;base64,${base64String}`}

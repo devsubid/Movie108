@@ -15,8 +15,6 @@ const movieSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  rating: Number,
-  ratingCount: Number,
   image: {
     data: Buffer,
     contentType: String,
