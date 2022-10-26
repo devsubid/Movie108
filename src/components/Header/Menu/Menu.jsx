@@ -20,7 +20,7 @@ const StyledMenu = styled.nav`
   opacity: 0;
   transform: translateX(-100%);
   transition: all 0.15s ease;
-  z-index: 2;
+  z-index: 3;
   &.active {
     transform: translateX(0);
     opacity: 1;

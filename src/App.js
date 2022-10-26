@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
-import Login from "./pages/Login/Login";
-import SignUp from "./pages/SignUp/SignUp";
-import Home from "./pages/Home/Home";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
-import Modal from "./components/Modal/Modal";
 import Loading from "./components/Loading/Loading";
-import Search from "./pages/Search/Search";
-import Movie from "./pages/Movie/Movie";
-import About from "./pages/About/About";
+
+// lazy load all components
+const Login = React.lazy(() => import("./pages/Login/Login"));
+const SignUp = React.lazy(() => import("./pages/SignUp/SignUp"));
+const Home = React.lazy(() => import("./pages/Home/Home"));
+const Modal = React.lazy(() => import("./components/Modal/Modal"));
+const Search = React.lazy(() => import("./pages/Search/Search"));
+const Movie = React.lazy(() => import("./pages/Movie/Movie"));
+const About = React.lazy(() => import("./pages/About/About"));
+const Contact = React.lazy(() => import("./pages/Contact/Contact"));
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -108,6 +111,25 @@ a:hover{
   opacity: 0.5;
   transition: all 0.15 ease;
 }
+.form-group textarea {
+  width: 100%;
+  outline: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(255 255 255 / 30%);
+  background-color: transparent;
+  color: rgb(var(--light-color));
+  font-size: 1.15em;
+  font-weight: 300;
+}
+.form-group textarea:focus {
+  border: 1px solid rgb(var(--primary-color));
+}
+.form-group textarea::placeholder {
+  color: rgb(var(--light-color));
+  opacity: 0.5;
+  transition: all 0.15 ease;
+}
 .light .form-group input {
   color: rgb(var(--dark-color));
   border: 1px solid rgb(var(--dark-color), 0.3);
@@ -148,6 +170,41 @@ label {
 }
 `;
 
+const spinnerAnimation = keyframes`
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+`;
+
+const ScrollLoading = styled.div`
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  & span {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: calc(45% - 1.75rem);
+    left: calc(50% - 1.75rem);
+    border-radius: 50%;
+    border-top: 4px solid rgba(var(--light-color), 1);
+    border-left: 4px solid rgba(var(--light-color), 1);
+    border-right: 4px solid rgba(var(--light-color), 0);
+    animation: ${spinnerAnimation} 0.6s linear infinite;
+  }
+`;
+
 function App() {
   const location = useLocation();
   useEffect(() => {
@@ -181,15 +238,24 @@ function App() {
       <Header />
       <Modal />
       <Loading />
-      <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/signup" element={<SignUp />} />
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/aboutus" element={<About />} />
-        <Route path="/movie/:movieTitle-:movieId" element={<Movie />} />
-        <Route path="/search/:params" element={<Search />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense
+        fallback={
+          <ScrollLoading>
+            <span></span>
+          </ScrollLoading>
+        }
+      >
+        <Routes>
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/aboutus" element={<About />} />
+          <Route exact path="/contactus" element={<Contact />} />
+          <Route path="/movie/:movieTitle-:movieId" element={<Movie />} />
+          <Route path="/search/:params" element={<Search />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </div>
   );
