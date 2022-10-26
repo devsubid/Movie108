@@ -8,7 +8,6 @@ const FooterElement = styled.footer`
   margin-top: 0;
   transition: all 0.15s ease;
   & .container {
-    margin-top: 0;
     & .credits {
       margin-top: 1rem;
       color: rgb(var(--light-color), 0.5);
