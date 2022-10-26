@@ -30,6 +30,7 @@ function Contact() {
   const loading = useContext(LoadingContext);
   const [status, setStatus] = useState(null);
   useEffect(() => {
+    document.title = "Contact | Movie108";
     let form = document.getElementById("contact-form");
     form.name.focus();
     return () => {

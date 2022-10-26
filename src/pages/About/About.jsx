@@ -107,6 +107,7 @@ const AboutDiv = styled.div`
 const About = () => {
   const loading = useContext(LoadingContext);
   useEffect(() => {
+    document.title = "About | Movie108";
     return () => {
       loading.setLoading(0);
     };
