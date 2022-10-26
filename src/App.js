@@ -11,6 +11,7 @@ import Modal from "./components/Modal/Modal";
 import Loading from "./components/Loading/Loading";
 import Search from "./pages/Search/Search";
 import Movie from "./pages/Movie/Movie";
+import About from "./pages/About/About";
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -184,6 +185,7 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/aboutus" element={<About />} />
         <Route path="/movie/:movieId" element={<Movie />} />
         <Route path="/search/:params" element={<Search />} />
         <Route path="*" element={<NotFound />} />

@@ -10,6 +10,24 @@ const CarouselStyle = styled.div`
   & .thumb {
     border-radius: 0.25rem;
     border-color: rgb(var(--light-color), 0.5);
+    width: 8rem !important;
+    height: 5rem;
+    display: grid;
+    place-content: center;
+    & img {
+      width: 8rem !important;
+      height: 5rem;
+      object-fit: cover;
+      object-position: center;
+    }
+    @media screen and (max-width: 50rem) {
+      width: 5rem !important;
+      height: 3rem;
+      & img {
+        width: 5rem !important;
+        height: 3rem;
+      }
+    }
     &:hover {
       border-color: rgb(var(--light-color), 0.25);
     }
@@ -26,12 +44,12 @@ const CarouselStyle = styled.div`
       }
     }
   }
-  & .imgContainer {
+  & img {
     height: 25rem;
     width: auto;
     overflow: hidden;
-    display: grid;
-    place-content: center;
+    object-fit: cover;
+    object-position: center;
   }
   & .carousel-caption {
     position: absolute;
@@ -68,13 +86,10 @@ function IndividualIntervalsExample({ movies }) {
           );
           return (
             <div key={index}>
-              <img style={{ display: "none" }} alt="" />
-              <div className="imgContainer">
-                <img
-                  src={`data:image/png;base64,${base64String}`}
-                  alt={movie.title}
-                />
-              </div>
+              <img
+                src={`data:image/png;base64,${base64String}`}
+                alt={movie.title}
+              />
               <div className="carousel-caption">
                 <h3>{movie.title}</h3>
               </div>
