@@ -56,7 +56,7 @@ const Cards = styled.div`
 
 function CarouselCard({ movies }) {
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: "0" }}>
       <Cards>
         {movies.length ? (
           movies.map((movie, index) => {
@@ -68,7 +68,7 @@ function CarouselCard({ movies }) {
             );
             return (
               <Link
-                to={`/movie/${movie._id}`}
+                to={`/movie/${movie.title}-${movie._id}`}
                 key={index}
                 className="card"
               >

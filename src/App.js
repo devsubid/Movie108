@@ -186,7 +186,7 @@ function App() {
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/" element={<Home />} />
         <Route exact path="/aboutus" element={<About />} />
-        <Route path="/movie/:movieId" element={<Movie />} />
+        <Route path="/movie/:movieTitle-:movieId" element={<Movie />} />
         <Route path="/search/:params" element={<Search />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -28,9 +28,31 @@ const MovieDiv = styled.div`
       }
       & .movie--info-top {
         border-bottom: 1px solid rgba(var(--light-color), 0.15);
-        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        transition: all 0.15s ease;
+        & .movie--info-top-head {
+          display: flex;
+          gap: 0.5rem;
+          & div {
+            display: flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(var(--light-color), 0.5);
+            &:before {
+              content: "•";
+              margin-right: 0.5rem;
+            }
+          }
+        }
         .light & {
           border-color: rgba(var(--dark-color), 0.15);
+        }
+        & .noRating {
+          color: rgba(var(--light-color), 0.5);
+          .light & {
+            color: rgba(var(--dark-color), 0.5);
+          }
         }
         & .breadcrumbs {
           display: flex;
@@ -162,7 +184,7 @@ const Movie = () => {
       setReviews(null);
     } else {
       const json = await response.json();
-      setReviews(json);
+      setReviews(json.reverse());
     }
   };
   const getRating = async (movieId) => {
@@ -176,6 +198,34 @@ const Movie = () => {
       setRating(json);
     }
   };
+  const dateFormater = (date) => {
+    return new Date() - new Date(date) < 86400000
+      ? (new Date() - new Date(date)) / 3600000 < 1
+        ? new Date() - new Date(date) < 60000
+          ? "Just now"
+          : `${Math.floor((new Date() - new Date(date)) / 60000)} minutes ago`
+        : `${Math.floor((new Date() - new Date(date)) / 3600000)} hours ago`
+      : new Date() - new Date(date) < 86400000
+      ? "Today"
+      : new Date() - new Date(date) < 172800000
+      ? "Yesterday"
+      : new Date() - new Date(date) / 172800000 === 1
+      ? "a day ago"
+      : new Date() - new Date(date) / 172800000 < 7
+      ? `${Math.floor((new Date() - new Date(date)) / 172800000)} days ago`
+      : new Date() - new Date(date) / 604800000 === 1
+      ? "a week ago"
+      : new Date() - new Date(date) / 604800000 < 4
+      ? `${Math.floor((new Date() - new Date(date)) / 604800000)} weeks ago`
+      : new Date() - new Date(date) / 2629746000 === 1
+      ? "a month ago"
+      : new Date() - new Date(date) / 2629746000 < 12
+      ? `${Math.floor((new Date() - new Date(date)) / 2629746000)} months ago`
+      : new Date() - new Date(date) / 31556952000 === 1
+      ? "a year ago"
+      : `${Math.floor((new Date() - new Date(date)) / 31556952000)} years ago`;
+  };
+
   useEffect(
     () => {
       getMovie(movieId);
@@ -212,18 +262,21 @@ const Movie = () => {
             </div>
             <div className="movie--info">
               <div className="movie--info-top">
-                <h1>{movie.title}</h1>
-                <div className="breadcrumbs">
-                  <div
-                    className="rating"
-                    title={`${
-                      rating &&
-                      rating.avgRating.length &&
-                      rating.avgRating[0].avgRating
-                    } Stars`}
-                  ></div>
-                  <div className="ratingCount">{rating.rating} ratings</div>
+                <div className="movie--info-top-head">
+                  <h2>{movie.title}</h2>
+                  <div>{dateFormater(movie.date)}</div>
                 </div>
+                {rating && rating.avgRating.length ? (
+                  <div className="breadcrumbs">
+                    <div
+                      className="rating"
+                      title={`${rating.avgRating[0].avgRating} Stars`}
+                    ></div>
+                    <div className="ratingCount">{rating.rating} ratings</div>
+                  </div>
+                ) : (
+                  <div className="noRating">No ratings yet</div>
+                )}
               </div>
               <div className="movie--info-description">
                 <p>{movie.description}</p>
@@ -320,15 +373,7 @@ const Movie = () => {
                 <div className="review--header">
                   <div className="review--header-name">{review.userName}</div>
                   <div className="review--header-date">
-                    {new Date(-new Date(review.date)) < 86400000
-                      ? (new Date() - new Date(review.date)) / 3600000 < 1
-                        ? `${Math.floor(
-                            (new Date() - new Date(review.date)) / 60000
-                          )} minutes ago`
-                        : `${Math.floor(
-                            (new Date() - new Date(review.date)) / 3600000
-                          )} hours ago`
-                      : new Date(review.date).toLocaleDateString()}
+                    {dateFormater(review.date)}
                   </div>
                 </div>
                 <div className="review--body">

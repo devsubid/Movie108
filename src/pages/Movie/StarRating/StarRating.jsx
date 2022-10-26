@@ -26,6 +26,9 @@ const Stars = styled.div`
     gap: 0.5rem;
     transform: rotateY(180deg);
     transition: all 0.15s ease;
+    .light & {
+      color: rgb(var(--dark-color), 0.5);
+    }
   }
   & input:not(:checked) ~ label:hover,
   & input:not(:checked) ~ label:hover ~ label {

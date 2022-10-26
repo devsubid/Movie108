@@ -1,8 +1,12 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const CarouselStyle = styled.div`
+  & .slide {
+    cursor: pointer;
+  }
   & .thumbs {
     display: flex;
     justify-content: center;
@@ -64,6 +68,7 @@ const CarouselStyle = styled.div`
 `;
 
 function IndividualIntervalsExample({ movies }) {
+  const navigate = useNavigate();
   return (
     <CarouselStyle className="container">
       <Carousel
@@ -85,7 +90,12 @@ function IndividualIntervalsExample({ movies }) {
             )
           );
           return (
-            <div key={index}>
+            <div
+              key={index}
+              onClick={() => {
+                navigate(`/movie/${movie.title}-${movie._id}`);
+              }}
+            >
               <img
                 src={`data:image/png;base64,${base64String}`}
                 alt={movie.title}
