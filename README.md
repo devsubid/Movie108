@@ -1,7 +1,7 @@
 # [Movie108](https://news365-itsme-subid.vercel.app/)
 
-The agenda of this repository is to help others and myself too.
-I personally found it very useful for many times, generally I code a program but forget it very frequently, so this repository help by easy accessibility to my code and also easy to go through the Source code.
+The agenda of this repository is to help others as well as myself.
+I found it very useful many times. Generally, I code a program but forget it very frequently, so this repository helps by easy accessibility to my code and also makes it easy to go through the Source code.
 
 ## Installation
 
