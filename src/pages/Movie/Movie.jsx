@@ -165,17 +165,19 @@ const Movie = () => {
   const modal = useContext(modalContext);
   const navigate = useNavigate();
   const loading = useContext(LoadingContext);
+  
   // get movie by id
   const getMovie = async (movieId) => {
     loading.setLoading(1);
     const response = await fetch(`${host}/api/movies/getmovie/${movieId}`);
     const status = response.status;
+    loading.setLoading(0);
     if (status === 404 || status === 500) {
       setMovie(null);
+      navigate("/404");
     } else {
       const json = await response.json();
       setMovie(json);
-      loading.setLoading(0);
     }
   };
   const getReviews = async (movieId) => {
@@ -229,22 +231,29 @@ const Movie = () => {
 
   useEffect(
     () => {
-      getMovie(movieId);
-      getReviews(movieId);
-      getRating(movieId);
-      fetch(`${host}/api/users/getusername`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": localStorage.getItem("token"),
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.name) {
-            localStorage.setItem("username", data.name);
-          }
-        });
+      loading.setLoading(1);
+      let isCancelled = false;
+      if (!isCancelled) {
+        getMovie(movieId);
+        getReviews(movieId);
+        getRating(movieId);
+        fetch(`${host}/api/users/getusername`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.name) {
+              localStorage.setItem("username", data.name);
+            }
+          });
+      }
+      return () => {
+        isCancelled = true;
+      };
     } /* eslint-disable-next-line react-hooks/exhaustive-deps */,
     []
   );

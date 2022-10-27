@@ -1,5 +1,6 @@
-import React from "react";
 import styled from "styled-components";
+import { useContext, useEffect } from "react";
+import loadingContext from "../../context/loading/loadingContext";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,13 @@ const Container = styled.div`
 `;
 
 function NotFound() {
+  const loading = useContext(loadingContext);
+  useEffect(
+    () => {
+      loading.setLoading(0);
+    } /* eslint-disable-next-line react-hooks/exhaustive-deps */,
+    []
+  );
   return (
     <Container className="container">
       <h2>404</h2>

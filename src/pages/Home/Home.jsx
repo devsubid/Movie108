@@ -62,15 +62,19 @@ function Home() {
     }
   };
   useEffect(() => {
+    let isCancelled = false;
     window.addEventListener("scroll", handleScroll);
-    if (isFirstRun.current) {
+    if (isFirstRun.current && !isCancelled) {
       loading.setLoading(1);
+      isFirstRun.current = false;
       movies.getMovies(page).then((pages) => {
         setPages(pages);
         loading.setLoading(0);
       });
-      isFirstRun.current = false;
     }
+    return () => {
+      isCancelled = true;
+    };
     // eslint-disable-next-line
   }, [page, pages, movies, loading]);
   let arrMovies = movies.movies;
