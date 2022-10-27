@@ -232,6 +232,19 @@ const Movie = () => {
       getMovie(movieId);
       getReviews(movieId);
       getRating(movieId);
+      fetch(`${host}/api/users/getusername`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.name) {
+            localStorage.setItem("username", data.name);
+          }
+        });
     } /* eslint-disable-next-line react-hooks/exhaustive-deps */,
     []
   );
@@ -365,19 +378,25 @@ const Movie = () => {
             </form>
           </div>
           {reviews &&
-            reviews.map((review) => (
-              <div className="review" key={review._id}>
-                <div className="review--header">
-                  <div className="review--header-name">{review.userName}</div>
-                  <div className="review--header-date">
-                    {dateFormater(review.date)}
+            reviews.map((review) => {
+              return (
+                <div className="review" key={review._id}>
+                  <div className="review--header">
+                    <div className="review--header-name">
+                      {localStorage.getItem("username") === review.userName
+                        ? "You"
+                        : review.userName}
+                    </div>
+                    <div className="review--header-date">
+                      {dateFormater(review.date)}
+                    </div>
+                  </div>
+                  <div className="review--body">
+                    <p>{review.review}</p>
                   </div>
                 </div>
-                <div className="review--body">
-                  <p>{review.review}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
         </div>
       </div>
     </MovieDiv>

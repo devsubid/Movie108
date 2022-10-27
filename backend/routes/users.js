@@ -134,13 +134,30 @@ router.post("/getuser", fetchUser, async (req, res) => {
   }
 });
 
+// GET USERNAME ROUTE: Get username using POST "/api/users/getusername"
+router.post("/getusername", fetchUser, async (req, res) => {
+  try {
+    // Get user details from the database
+    const userId = req.user.id;
+    const user = await User.findById(userId).select("name");
+    res.send(user);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Internal Server Error!\nSomething went wrong!");
+  }
+});
+
 // DELETE USER ROUTE: Delete a user using POST "/api/users/deleteuser"
 router.post("/deleteuser", fetchUser, async (req, res) => {
   try {
     // Get user details from the database
     const userId = req.user.id;
     const user = await User.findByIdAndDelete(userId);
-    res.json({ success: true, msg: "User has been deleted successfully", user });
+    res.json({
+      success: true,
+      msg: "User has been deleted successfully",
+      user,
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Internal Server Error!\nSomething went wrong!");
