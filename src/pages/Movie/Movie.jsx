@@ -355,6 +355,7 @@ const Movie = () => {
                       .then((res) => res.json())
                       .then((data) => {
                         getReviews(movieId);
+                        e.target.reset();
                       });
               }}
             >
