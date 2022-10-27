@@ -54,10 +54,9 @@ function Home() {
     ) {
       if (page < pages) {
         setLoadingScroll(true);
-        setPage(page + 1);
-        movies.getMovies(page + 1).then((pages) => {
+        setPage((prev) => prev + 1);
+        movies.getMovies(page + 1).then(() => {
           setLoadingScroll(false);
-          setPages(pages);
         });
       }
     }
@@ -79,7 +78,7 @@ function Home() {
     <>
       {!loading.loading && arrMovies && (
         <>
-          <Carousel movies={arrMovies && arrMovies.slice(0, 4)} />
+          <Carousel movies={arrMovies?.slice(0, 4)} />
           <Card movies={arrMovies} />
           {loadingScroll && (
             <ScrollLoading>

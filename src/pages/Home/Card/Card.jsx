@@ -77,6 +77,7 @@ function CarouselCard({ movies }) {
                     data:image/png;base64,${base64String}
                   `}
                   alt={movie.title}
+                  loading="lazy"
                 />
                 <div className="card-body">
                   <h3>{movie.title}</h3>
