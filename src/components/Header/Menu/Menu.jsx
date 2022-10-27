@@ -118,12 +118,20 @@ function Menu({ menuItems, menuOpen, setMenuOpen }) {
         {!localStorage.getItem("token") ? (
           <>
             <Link to="/login">
-              <Button className="secondary" btnProperty="small secondary">
+              <Button
+                className="secondary"
+                btnProperty="small secondary"
+                style={{ width: "100%" }}
+              >
                 Login
               </Button>
             </Link>
             <Link to="/signup">
-              <Button className="primary" btnProperty="small primary">
+              <Button
+                className="primary"
+                btnProperty="small primary"
+                style={{ width: "100%" }}
+              >
                 Sign Up
               </Button>
             </Link>
