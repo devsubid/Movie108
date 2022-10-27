@@ -29,6 +29,7 @@ const MovieDiv = styled.div`
       & .movie--info-top {
         border-bottom: 1px solid rgba(var(--light-color), 0.15);
         margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
         transition: all 0.15s ease;
         & .movie--info-top-head {
           display: flex;
@@ -244,11 +245,7 @@ const Movie = () => {
       )
     ));
   return (
-    <MovieDiv
-      rating={
-        rating && rating.avgRating.length && rating.avgRating[0].avgRating
-      }
-    >
+    <MovieDiv rating={rating?.avgRating[0]?.avgRating}>
       <div className="container">
         {movie && (
           <div className="movie--container">
@@ -266,7 +263,7 @@ const Movie = () => {
                   <h2>{movie.title}</h2>
                   <div>{dateFormater(movie.date)}</div>
                 </div>
-                {rating && rating.avgRating.length ? (
+                {rating?.avgRating.length ? (
                   <div className="breadcrumbs">
                     <div
                       className="rating"
@@ -285,7 +282,7 @@ const Movie = () => {
           </div>
         )}
         <div className="reviews">
-          <h3>{reviews && reviews.length} Reviews</h3>
+          <h3>{reviews?.length} Reviews</h3>
           {/* Add review section here */}
           <div className="add-review">
             <div className="starRating">
