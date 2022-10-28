@@ -1,7 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
+import LoadingContext from "../../context/loading/loadingContext";
 import ModalContext from "./../../context/modal/modalContext";
 
 const SignUpDiv = styled.div`
@@ -43,6 +44,7 @@ const SignUpDiv = styled.div`
 function SignUp() {
   const navigate = useNavigate();
   const modalContext = useContext(ModalContext);
+  const loading = useContext(LoadingContext);
   const [status, setStatus] = useState("");
   const confirmPassword = () => {
     let password = document.getElementById("password").value;
@@ -55,6 +57,16 @@ function SignUp() {
       return true;
     }
   };
+  useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
+      loading.setLoading(0);
+    }
+    return () => {
+      isCancelled = true;
+    };
+    // eslint-disable-next-line
+  }, []);
   return (
     <div className="container">
       <SignUpDiv>
@@ -185,13 +197,12 @@ function SignUp() {
               <span
                 id="status"
                 style={{
-                  color: `${
-                    status === ""
-                      ? ""
-                      : status === "Passwords do not match"
+                  color: `${status === ""
+                    ? ""
+                    : status === "Passwords do not match"
                       ? "red"
                       : "green"
-                  }`,
+                    }`,
                 }}
               >
                 {status}

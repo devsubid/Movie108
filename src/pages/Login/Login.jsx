@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../../components/Button/Button";
 import ModalContext from "./../../context/modal/modalContext";
+import LoadingContext from "../../context/loading/loadingContext";
 
 const LoginDiv = styled.div`
   display: grid;
@@ -40,6 +41,17 @@ const LoginDiv = styled.div`
 function Login() {
   const navigate = useNavigate();
   const modalContext = useContext(ModalContext);
+  const loading = useContext(LoadingContext);
+  useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
+      loading.setLoading(0);
+    }
+    return () => {
+      isCancelled = true;
+    };
+    // eslint-disable-next-line
+  }, []);
   return (
     <div className="container">
       <LoginDiv>

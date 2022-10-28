@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
   right: 0;
   padding-block: 1rem;
   background: rgb(var(--dark-color));
-  z-index: 2;
+  z-index: 3;
   transition: all 0.15s ease;
   .light & {
     background: rgb(var(--light-color));
