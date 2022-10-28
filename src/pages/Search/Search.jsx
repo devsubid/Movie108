@@ -20,7 +20,11 @@ const Search = () => {
     // eslint-disable-next-line
   }, [params]);
   let arrMovies = movies.movies;
-  return <Card movies={arrMovies} />;
+  return (
+    <div className="container">
+      <Card movies={arrMovies} />
+    </div>
+  );
 };
 
 export default Search;
