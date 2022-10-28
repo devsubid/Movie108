@@ -357,6 +357,7 @@ function Header() {
                               accent: "danger",
                               action: () => {
                                 localStorage.removeItem("token");
+                                localStorage.removeItem("username");
                                 modalContext.setModal({
                                   ...modalContext.modal,
                                   isOpen: false,
@@ -385,6 +386,7 @@ function Header() {
                                   })
                                   .then((data) => {
                                     localStorage.removeItem("token");
+                                    localStorage.removeItem("username");
                                     modalContext.setModal({
                                       isOpen: true,
                                       title: "Success",

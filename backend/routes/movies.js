@@ -2,6 +2,8 @@ const express = require("express");
 const { validationResult } = require("express-validator");
 const fetchUser = require("../middleware/fetchUser");
 const movie = require("../models/Movie");
+const Review = require("../models/Reviews");
+const Rating = require("../models/Rating");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
@@ -10,8 +12,10 @@ const path = require("path");
 const Storage = multer.diskStorage({
   destination: "Images/",
   filename: (req, file, callback) => {
-    console.log(file);
-    callback(null, Date.now() + file.originalname);
+    callback(
+      null,
+      Date.now() + Math.round(Math.random() * 1000000000) + file.originalname
+    );
   },
 });
 
@@ -77,7 +81,7 @@ router.post("/add", fetchUser, async (req, res) => {
       console.log(err);
       return res.status(500).send(err);
     }
-    const { title, description, date, rating, ratingCount } = req.body;
+    let { title, description, date } = req.body;
     try {
       let movieVar = await movie.create({
         title,
@@ -139,6 +143,12 @@ router.delete("/delete/:id", fetchUser, async (req, res) => {
       return res.status(404).json({ Success: false, msg: "Not Found" });
     }
     movieVar = await movie.findByIdAndDelete(req.params.id);
+    await Review.findOneAndDelete({
+      movieId: req.params.id,
+    });
+    await Rating.findOneAndDelete({
+      movieId: req.params.id,
+    });
     res.json({ Success: true, msg: "Movie has been deleted", movieVar });
   } catch (error) {
     console.log(error.message);

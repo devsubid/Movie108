@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import ModalContext from "../../context/modal/modalContext";
 import cross from "../../assets/cross.svg";
+import crossOnly from "../../assets/cross-only.svg";
 import tick from "../../assets/tick.svg";
 
 const ModalDiv = styled.div`
@@ -21,6 +22,7 @@ const ModalDiv = styled.div`
   visibility: hidden;
   transition: all 0.15s ease;
   & .modalWrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -74,6 +76,53 @@ const ModalDiv = styled.div`
       font-size: 1.5rem;
       font-weight: 700;
     }
+    & .modalToggler {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.25rem;
+      border-radius: 50%;
+      transition: all 0.15s ease;
+      &:hover {
+        backdrop-filter: invert(0.1);
+      }
+      .light &:hover {
+        backdrop-filter: brightness(0.9);
+      }
+      & .svg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transform: rotate(45deg);
+        background: rgb(var(--light-color));
+        mask: url(${crossOnly}) no-repeat center;
+        transition: all 0.15s ease;
+        cursor: pointer;
+        &:active {
+          scale: 1.15;
+        }
+        &:hover {
+          filter: brightness(0.8);
+        }
+        .light &:hover {
+          filter: invert(0.2);
+        }
+        .light & {
+          background: rgb(var(--dark-color));
+          mask: url(${cross}) no-repeat center;
+        }
+      }
+    }
+    /* & .close {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: rgb(var(--light-color));
+      mask: url(${cross}) no-repeat center;
+      transform: rotate(45deg);
+    } */
     & .modalBody {
       width: 90%;
       text-align: center;
@@ -119,6 +168,17 @@ const Modal = () => {
         <div className={`${modalContext.modal.accent}`}></div>
         <div className="confirmation">
           <h3>{modalContext.modal.title}</h3>
+          <div
+            className="modalToggler"
+            onClick={() => {
+              modalContext.setModal({
+                ...modalContext.modal,
+                isOpen: false,
+              });
+            }}
+          >
+            <div className="svg"></div>
+          </div>
           {modalContext.modal.body && (
             <div className="modalBody">
               <p>{modalContext.modal.body}</p>
