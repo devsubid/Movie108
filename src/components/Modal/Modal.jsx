@@ -84,6 +84,7 @@ const ModalDiv = styled.div`
       height: 2.5rem;
       padding: 0.25rem;
       border-radius: 50%;
+      user-select: none;
       transition: all 0.15s ease;
       &:hover {
         backdrop-filter: invert(0.1);
@@ -112,7 +113,7 @@ const ModalDiv = styled.div`
         }
         .light & {
           background: rgb(var(--dark-color));
-          mask: url(${cross}) no-repeat center;
+          mask: url(${crossOnly}) no-repeat center;
         }
       }
     }
