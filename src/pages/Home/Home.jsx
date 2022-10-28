@@ -52,10 +52,10 @@ function Home() {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      if (page < pages) {
+      if (page < pages && !loadingScroll && !loading.loading) {
         setLoadingScroll(true);
         setPage((prev) => prev + 1);
-        movies.getMovies(page + 1).then(() => {
+        movies.getMoviesUpdate(page + 1).then(() => {
           setLoadingScroll(false);
         });
       }
@@ -67,7 +67,7 @@ function Home() {
     if (isFirstRun.current && !isCancelled) {
       loading.setLoading(1);
       isFirstRun.current = false;
-      movies.getMovies(page).then((pages) => {
+      movies.getMovies().then((pages) => {
         setPages(pages);
         loading.setLoading(0);
       });

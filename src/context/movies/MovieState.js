@@ -6,7 +6,15 @@ const MovieState = (props) => {
   const [movies, setmovies] = useState([]);
 
   // Get all movies
-  const getMovies = async (pageno) => {
+  const getMovies = async () => {
+    const response = await fetch(`${host}/api/movies/fetchmovies/pageno=1`);
+    const json = await response.json();
+    setmovies(json.movies);
+    return json.totalPages;
+  };
+
+  // Get all movies and update
+  const getMoviesUpdate = async (pageno) => {
     const response = await fetch(
       `${host}/api/movies/fetchmovies/pageno=${pageno}`
     );
@@ -79,6 +87,7 @@ const MovieState = (props) => {
       value={{
         movies,
         getMovies,
+        getMoviesUpdate,
         searchMovies,
         addMovie,
         deleteMovie,
