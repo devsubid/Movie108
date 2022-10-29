@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "both": "concurrently \"npm run start\" \"npm run --prefix ./backend/ serve\""
+    "both": "concurrently \"npm run start\" \"npm run --prefix ./../server/ serve\""
   },
   "eslintConfig": {
     "extends": [
