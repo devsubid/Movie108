@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const mongoURI = "mongodb://localhost:27017/movie108";
+require("dotenv").config();
+const mongoURI = process.env.CONNECTION_STRING || "mongodb://localhost:27017/movie108";
 
 const connectToMongo = () => {
   mongoose.connect(mongoURI).then(() => {
