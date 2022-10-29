@@ -58,7 +58,7 @@ const Stars = styled.div`
 const StarRating = ({ movieId }) => {
   const modal = useContext(Modal);
   const navigate = useNavigate();
-  const host = process.env.REACT_APP_SERVER_HOST_URL;
+  const host = process.env.REACT_APP_SERVER_HOST_URL || "http://localhost:5000";
   let stars = [
     {
       id: 1,

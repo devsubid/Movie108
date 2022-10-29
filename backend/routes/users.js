@@ -7,7 +7,7 @@ const fetchUser = require("../middleware/fetchUser");
 const router = express.Router();
 require("dotenv").config();
 
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || "dkHE6GAXFBP9KoNlrTYZhfC43jvzRyMw";
 
 // SIGNUP ROUTE: Create a new user using POST "/api/users/signup"
 router.post(

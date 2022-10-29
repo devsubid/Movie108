@@ -158,14 +158,14 @@ const MovieDiv = styled.div`
 
 const Movie = () => {
   const { movieId } = useParams();
-  const host = process.env.REACT_APP_SERVER_HOST_URL;
+  const host = process.env.REACT_APP_SERVER_HOST_URL || "http://localhost:5000";
   const [movie, setMovie] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [rating, setRating] = useState(null);
   const modal = useContext(modalContext);
   const navigate = useNavigate();
   const loading = useContext(LoadingContext);
-  
+
   // get movie by id
   const getMovie = async (movieId) => {
     loading.setLoading(1);

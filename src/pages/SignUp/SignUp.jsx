@@ -77,7 +77,9 @@ function SignUp() {
             onSubmit={(e) => {
               e.preventDefault();
               if (confirmPassword()) {
-                const host = process.env.REACT_APP_SERVER_HOST_URL;
+                const host =
+                  process.env.REACT_APP_SERVER_HOST_URL ||
+                  "http://localhost:5000";
                 fetch(`${host}/api/users/signup`, {
                   method: "POST",
                   headers: {
@@ -197,12 +199,13 @@ function SignUp() {
               <span
                 id="status"
                 style={{
-                  color: `${status === ""
-                    ? ""
-                    : status === "Passwords do not match"
+                  color: `${
+                    status === ""
+                      ? ""
+                      : status === "Passwords do not match"
                       ? "red"
                       : "green"
-                    }`,
+                  }`,
                 }}
               >
                 {status}

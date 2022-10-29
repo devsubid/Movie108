@@ -2,7 +2,7 @@ import MovieContext from "./movieContext";
 import React, { useState } from "react";
 
 const MovieState = (props) => {
-  const host = process.env.REACT_APP_SERVER_HOST_URL;
+  const host = process.env.REACT_APP_SERVER_HOST_URL || "http://localhost:5000";
   const [movies, setmovies] = useState([]);
 
   // Get all movies

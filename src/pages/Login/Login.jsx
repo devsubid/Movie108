@@ -60,7 +60,9 @@ function Login() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              const host = process.env.REACT_APP_SERVER_HOST_URL;
+              const host =
+                process.env.REACT_APP_SERVER_HOST_URL ||
+                "http://localhost:5000";
               fetch(`${host}/api/users/login`, {
                 method: "POST",
                 headers: {
