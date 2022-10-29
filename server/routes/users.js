@@ -18,22 +18,9 @@ router.post(
     body("password", "Password must be atleast 8 characters").isLength({
       min: 8,
     }),
-    body("confirmPassword", "Passwords do not match").custom(
-      // This is a custom validator that checks if the password and confirm password fields match
-      (value, { req }) => {
-        if (value !== req.body.password) {
-          throw new Error("Passwords do not match");
-        }
-        return true;
-      }
-    ),
   ],
   async (req, res) => {
     // If there are errors, return Bad request and the errors
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
     try {
       // search if user already exists
       let user = await User.findOne({
