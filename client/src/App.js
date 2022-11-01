@@ -240,7 +240,7 @@ function App() {
       <Loading />
       <Suspense
         fallback={
-          <ScrollLoading>
+          <ScrollLoading className="container">
             <span></span>
           </ScrollLoading>
         }
