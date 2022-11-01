@@ -24,5 +24,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Express.js: Listening at https://movie108.adaptable.app:${port}`);
+  console.log(`Express.js: Listening at port: ${port}`);
 });
