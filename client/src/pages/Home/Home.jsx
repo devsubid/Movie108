@@ -77,7 +77,7 @@ function Home() {
     };
     // eslint-disable-next-line
   }, [page, pages, movies, loading]);
-  let arrMovies = movies.movies;
+  let arrMovies = structuredClone(movies.movies).reverse();
   return (
     <>
       {!loading.loading && arrMovies && (
