@@ -201,8 +201,8 @@ const Movie = () => {
       setRating(json);
     }
   };
-  const dateFormater = (date) => {
-    return new Date() - new Date(date) < 86400000
+  const dateFormater = (date) =>
+    new Date() - new Date(date) < 86400000
       ? (new Date() - new Date(date)) / 3600000 < 1
         ? new Date() - new Date(date) < 60000
           ? "Just now"
@@ -210,25 +210,25 @@ const Movie = () => {
         : `${Math.floor((new Date() - new Date(date)) / 3600000)} hours ago`
       : new Date() - new Date(date) < 86400000
       ? "Today"
-      : new Date() - new Date(date) < 172800000
+      : ~~((new Date() - new Date(date)) / 172800000) === 1
       ? "Yesterday"
-      : new Date() - new Date(date) / 172800000 === 1
-      ? "a day ago"
-      : new Date() - new Date(date) / 172800000 < 7
+      : ~~((new Date() - new Date(date)) / 172800000) < 7
       ? `${Math.floor((new Date() - new Date(date)) / 172800000)} days ago`
-      : new Date() - new Date(date) / 604800000 === 1
+      : ~~((new Date() - new Date(date)) / 604800000) === 1
       ? "a week ago"
-      : new Date() - new Date(date) / 604800000 < 4
+      : ~~((new Date() - new Date(date)) / 604800000) < 4
       ? `${Math.floor((new Date() - new Date(date)) / 604800000)} weeks ago`
-      : new Date() - new Date(date) / 2629746000 === 1
+      : ~~((new Date() - new Date(date)) / 2629746000) === 1
       ? "a month ago"
-      : new Date() - new Date(date) / 2629746000 < 12
+      : ~~((new Date() - new Date(date)) / 2629746000) < 12
       ? `${Math.floor((new Date() - new Date(date)) / 2629746000)} months ago`
-      : new Date() - new Date(date) / 31556952000 === 1
+      : ~~((new Date() - new Date(date)) / 31556952000) === 1
       ? "a year ago"
-      : `${Math.floor((new Date() - new Date(date)) / 31556952000)} years ago`;
-  };
-
+      : !!date
+      ? `${new Date(date).getDate()}-${
+          new Date(date).getMonth() + 1
+        }-${new Date(date).getFullYear()}`
+      : "N/A";
   useEffect(
     () => {
       loading.setLoading(1);
@@ -237,19 +237,18 @@ const Movie = () => {
         getMovie(movieId);
         getReviews(movieId);
         getRating(movieId);
-        fetch(`${host}/api/users/getusername`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "auth-token": localStorage.getItem("token"),
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.name) {
-              localStorage.setItem("username", data.name);
-            }
-          });
+        !localStorage.getItem("username") &&
+          fetch(`${host}/api/users/getusername`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "auth-token": localStorage.getItem("token"),
+            },
+          })
+            .then((res) => res.json())
+            .then(
+              (data) => data.name && localStorage.setItem("username", data.name)
+            );
       }
       return () => {
         isCancelled = true;
