@@ -18,6 +18,7 @@ const MovieDiv = styled.div`
       img {
         width: 100%;
         object-fit: contain;
+        object-position: top;
       }
     }
     & .movie--info {

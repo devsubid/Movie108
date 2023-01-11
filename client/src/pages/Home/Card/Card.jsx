@@ -32,6 +32,7 @@ const Cards = styled.div`
       width: 100%;
       height: 400px;
       object-fit: cover;
+      object-position: top;
       transition: all 0.5s ease;
     }
     &:hover img {

@@ -22,7 +22,7 @@ const CarouselStyle = styled.div`
       width: 8rem !important;
       height: 5rem;
       object-fit: cover;
-      object-position: center;
+      object-position: top;
     }
     @media screen and (max-width: 50rem) {
       width: 5rem !important;
@@ -53,7 +53,7 @@ const CarouselStyle = styled.div`
     width: auto;
     overflow: hidden;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
   }
   & .carousel-caption {
     position: absolute;
