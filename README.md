@@ -2,7 +2,7 @@
 
 # [Next Academy](https://news365-itsme-subid.vercel.app/)
 
-![](https://raw.githubusercontent.com/itsme-Subid/movie108/main/preview.webp)
+![](https://raw.githubusercontent.com/itsme-Subid/movie108/main/preview.png)
 ![](https://img.shields.io/github/license/itsme-Subid/movie108?style=for-the-badge)
 ![](https://img.shields.io/github/languages/top/itsme-Subid/movie108?style=for-the-badge)
 ![](https://img.shields.io/github/languages/count/itsme-Subid/movie108?style=for-the-badge)
