@@ -2,7 +2,7 @@
 
 # [Movie108](https://movie108.vercel.app/)
 
-![](https://raw.githubusercontent.com/itsme-Subid/movie108/main/preview.png)
+![](https://raw.githubusercontent.com/itsme-Subid/movie108/main/preview.webp)
 ![](https://img.shields.io/github/license/itsme-Subid/movie108?style=for-the-badge)
 ![](https://img.shields.io/github/languages/top/itsme-Subid/movie108?style=for-the-badge)
 ![](https://img.shields.io/github/languages/count/itsme-Subid/movie108?style=for-the-badge)
