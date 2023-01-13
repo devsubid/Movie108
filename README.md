@@ -1,6 +1,6 @@
 <div align="center">
 
-# [Next Academy](https://news365-itsme-subid.vercel.app/)
+# [Movie108](https://movie108.vercel.app/)
 
 ![](https://raw.githubusercontent.com/itsme-Subid/movie108/main/preview.png)
 ![](https://img.shields.io/github/license/itsme-Subid/movie108?style=for-the-badge)
