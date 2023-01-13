@@ -1,24 +1,59 @@
-# [Movie108](https://news365-itsme-subid.vercel.app/)
+<div align="center">
 
-The agenda of this repository is to help others as well as myself.
-I found it very useful many times. Generally, I code a program but forget it very frequently, so this repository helps by easy accessibility to my code and also makes it easy to go through the Source code.
+# [Next Academy](https://news365-itsme-subid.vercel.app/)
 
-## Installation
+![](https://raw.githubusercontent.com/itsme-Subid/movie108/main/preview.webp)
+![](https://img.shields.io/github/license/itsme-Subid/movie108?style=for-the-badge)
+![](https://img.shields.io/github/languages/top/itsme-Subid/movie108?style=for-the-badge)
+![](https://img.shields.io/github/languages/count/itsme-Subid/movie108?style=for-the-badge)
+![](https://img.shields.io/github/languages/code-size/itsme-Subid/movie108?style=for-the-badge)
+![](https://img.shields.io/github/repo-size/itsme-Subid/movie108?style=for-the-badge)
+![](https://img.shields.io/github/last-commit/itsme-Subid/movie108?style=for-the-badge)
+![](https://img.shields.io/github/commit-activity/w/itsme-Subid/movie108?style=for-the-badge)
 
-React has been designed for gradual adoption from the start, and **you can use as little or as much React as you need**:
+</div>
+Welcome to the Movie108 repository! This repository is a practice project for my MERN concepts and CSS skills. It is a beautiful website that is primarily focused on courses for programming enthusiasts.
 
-- Use [Online Playgrounds](https://reactjs.org/docs/getting-started.html#online-playgrounds) to get a taste of React.
-- [Add React to a Website](https://reactjs.org/docs/add-react-to-a-website.html) as a `<script>` tag in one minute.
-- [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) if you're looking for a powerful JavaScript toolchain.
+## Getting Started
 
-## Clone the project
+To get started, you can simply clone this repository and install the dependencies.
 
-Go to Project Directory and open `Command Prompt`
+### Cloning the Repository
+
+To clone the repository, you will need to have git installed on your machine. Once you have those, you can use the following commands:
 
 ```bash
-  cd C:\Users\{User Name}\Documents\{Project Directory}
+git clone https://github.com/itsme-Subid/movie108.git
 ```
 
+### Running the Project
+
+To run the project, you will need to have Node.js and npm or yarn or pnpm installed on your machine. Once you have those, you can use the following commands:
+
 ```bash
-  git clone https://github.com/itsme-Subid/Movie108.git
+cd movie108
+npm install
+npm run dev
 ```
+
+or, if you are using yarn:
+
+```bash
+cd movie108
+yarn
+yarn dev
+```
+
+or, if you are using pnpm:
+
+```bash
+cd movie108
+pnpm install
+pnpm dev
+```
+
+This will start the development server and you should be able to see the website by visiting http://localhost:3000 in your browser.
+
+## License
+
+This project is licensed under the GPL-3.0 License - see the [LICENSE.md](https://github.com/itsme-Subid/movie108/blob/main/LICENSE) file for details
