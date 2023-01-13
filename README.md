@@ -12,7 +12,7 @@
 ![](https://img.shields.io/github/commit-activity/w/itsme-Subid/movie108?style=for-the-badge)
 
 </div>
-Welcome to the Movie108 repository! This repository is a practice project for my MERN concepts and CSS skills. It is a beautiful website that is primarily focused on courses for programming enthusiasts.
+Welcome to the Movie108 repository! Developed and implemented a full-stack web application using React.js, Styled-Components, Node.js, Express.js, and MongoDB. The platform, called Movie108, allows users to sign up, add their reviews and ratings for movies, and view reviews of any movie on the site.
 
 ## Getting Started
 
