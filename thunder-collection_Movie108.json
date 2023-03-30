@@ -1,1 +1,404 @@
-{"client":"Thunder Client","collectionName":"Movie108","dateExported":"2022-10-28T10:18:25.683Z","version":"1.1","folders":[{"_id":"169d243e-c9a5-4e91-967f-310d00dea034","name":"Authentication","containerId":"","created":"2022-10-16T14:59:24.762Z","sortNum":20000},{"_id":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Movies","containerId":"","created":"2022-10-16T18:47:18.017Z","sortNum":30000},{"_id":"0dd7c81c-5fec-4a66-ab26-0eb37436b8fc","name":"Rating","containerId":"","created":"2022-10-23T20:24:46.490Z","sortNum":40000},{"_id":"6a9324d1-1818-4cf5-89fa-5591ef3d954d","name":"Review","containerId":"","created":"2022-10-24T16:36:56.036Z","sortNum":50000}],"requests":[{"_id":"d2285c03-9184-40e0-b6f5-461747e7e474","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"169d243e-c9a5-4e91-967f-310d00dea034","name":"Signup","url":"http://localhost:5000/api/users/signup","method":"POST","sortNum":10000,"created":"2022-10-16T14:59:41.916Z","modified":"2022-10-23T15:26:59.604Z","headers":[{"name":"Content-Type","value":"application/json"}],"params":[],"body":{"type":"json","raw":"{\n  \"name\": \"Subid Das2\",\n  \"email\": \"itsmesubid2@gmail.com\",\n  \"password\": \"this is a passsword\",\n  \"confirmPassword\": \"this is a password\"\n}","form":[]},"tests":[]},{"_id":"050e057b-0eda-4750-ba0f-47b2c8a16ac7","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"169d243e-c9a5-4e91-967f-310d00dea034","name":"Login","url":"http://localhost:5000/api/users/login","method":"POST","sortNum":20000,"created":"2022-10-16T17:55:55.969Z","modified":"2022-10-16T18:40:31.189Z","headers":[{"name":"Content-Type","value":"application/json"}],"params":[],"body":{"type":"json","raw":"{\n  \"email\": \"itsmesubid@gmail.com\",\n  \"password\": \"this is a password\"\n}","form":[]},"tests":[]},{"_id":"0593a9a7-4ae5-482c-86f7-ca6a0532ca52","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"169d243e-c9a5-4e91-967f-310d00dea034","name":"Get User","url":"http://localhost:5000/api/users/getuser/","method":"POST","sortNum":30000,"created":"2022-10-16T18:37:23.887Z","modified":"2022-10-27T07:02:59.714Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjcxNTc3Mn0.sdWCtcgaZ193IUdKNo9ub-ngfvf1xMzyOGDCWaAnAFo"}],"params":[],"tests":[]},{"_id":"9262e722-0875-4683-885f-7df5a2a6c38e","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Fetch Movies","url":"http://localhost:5000/api/movies/fetchmovies/pageno=2","method":"GET","sortNum":40000,"created":"2022-10-17T04:08:35.961Z","modified":"2022-10-25T18:03:22.555Z","headers":[],"params":[],"tests":[]},{"_id":"db3d721f-40fd-4a04-b619-3aedde760e96","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Add Movie","url":"http://localhost:5000/api/movies/add","method":"POST","sortNum":50000,"created":"2022-10-17T04:50:26.881Z","modified":"2022-10-25T15:27:18.497Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"},{"name":"Content-Type","value":"application/json","isDisabled":true}],"params":[],"body":{"type":"formdata","raw":"","form":[{"name":"title","value":"Autograph"},{"name":"description","value":"The film starts with a proposal of remaking Satyajit Ray's famous Nayak by a debutant director and storywriter Shuvobrata (Indraneil Sengupta) to famous Bengali actor Arun Chatterjee (Prosenjit). Arun approves Shuvobrata's proposal and agrees to finance the project. Shuvobrata requests his live-in girlfriend Srinandita or Shrin (Nandana Sen) to act opposite Arun. In the meantime, Arun and Shrin become close friends and Arun tells her about various incident from his past in an emotionally triggered condition. The exchange is videotaped accidentally and Shuvobrata on discovering it leaks it to the press, without Srinandita's consent, as a publicity stunt for the film. Srinandita leaves Shuvobrata on learning of this indiscretion. Arun, furious about the leak, bars the film from being released. Arun later learns that Shrin had no role in the leak and apologizes to her. The movie ends with Shrin leaving a note and a phone number for Arun at a roadside dhaba where they had met earlier."},{"name":"date","value":"10-14-2010"},{"name":"rating","value":"0","isDisabled":true},{"name":"ratingCount","value":"0","isDisabled":true}],"files":[{"name":"image","value":"c:\\Users\\itsme\\Desktop\\movies\\Autograph.jpg"}]},"tests":[]},{"_id":"df8d4100-5a78-4de8-ae3a-9a7b4059e2e7","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Update Movie","url":"http://localhost:5000/api/movies/update/634ce717da0aed8b04a6a535","method":"PUT","sortNum":60000,"created":"2022-10-17T05:51:55.260Z","modified":"2022-10-17T06:00:32.006Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"},{"name":"Content-Type","value":"application/json"}],"params":[],"body":{"type":"json","raw":"{\n  \"title\": \"itsme-subid\",\n  \"fullTitle\": \"this is movie108 backend\",\n  \"image\": \"null\"\n}","form":[]},"tests":[]},{"_id":"4bf81d5c-ea7e-40dc-be21-1d278645c7c8","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"169d243e-c9a5-4e91-967f-310d00dea034","name":"Delete User","url":"http://localhost:5000/api/users/deleteuser","method":"POST","sortNum":70000,"created":"2022-10-17T06:15:34.889Z","modified":"2022-10-17T06:29:45.191Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0Y2YzODYzMzk0ZGI5MTVmOTQzODIwIn0sImlhdCI6MTY2NTk4NzQ2Mn0.ukk2CNJu8LDjljnGgpoJdcv_Vp0-39S4nlDdFlZ1AwU"}],"params":[],"tests":[]},{"_id":"a731af2a-368a-45b2-be0d-fe4b0c3d7275","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Delete Movie","url":"http://localhost:5000/api/movies/delete/6354254ca09844a205e106e7","method":"DELETE","sortNum":80000,"created":"2022-10-17T06:18:48.301Z","modified":"2022-10-22T17:18:26.445Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"}],"params":[],"tests":[]},{"_id":"d0c0be25-e57e-4c05-9937-9ec6f99b66b3","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"0dd7c81c-5fec-4a66-ab26-0eb37436b8fc","name":"Add Rating","url":"http://localhost:5000/api/rating/add/635438127dc7a656eff96129","method":"POST","sortNum":100000,"created":"2022-10-23T20:25:02.632Z","modified":"2022-10-25T12:57:37.907Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjU1NzE1N30.aPRZPHRxBopu6JZzOhEUy5SrBKxQBT_3NnH_kscfN3I"},{"name":"Content-Type","value":"application/json"}],"params":[],"body":{"type":"json","raw":"{\n  \"rating\": 5\n}","form":[]},"tests":[]},{"_id":"04f67525-71f1-4879-a1df-9be1bc0bc040","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"0dd7c81c-5fec-4a66-ab26-0eb37436b8fc","name":"fetch Rating","url":"http://localhost:5000/api/rating/fetchrating/635690ddcee3c14822bb3ab5","method":"GET","sortNum":110000,"created":"2022-10-23T20:58:22.424Z","modified":"2022-10-25T14:30:39.835Z","headers":[{"name":"Accept","value":"*/*","isDisabled":true},{"name":"User-Agent","value":"Thunder Client (https://www.thunderclient.com)","isDisabled":true},{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjU1NzE1N30.aPRZPHRxBopu6JZzOhEUy5SrBKxQBT_3NnH_kscfN3I","isDisabled":true},{"name":"Content-Type","value":"application/json","isDisabled":true}],"params":[],"tests":[]},{"_id":"67ca9e8a-1cc1-4108-a6c5-837a82269f7d","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Search Movie","url":"http://localhost:5000/api/movies/searchmovies/auto","method":"GET","sortNum":130000,"created":"2022-10-24T11:37:17.094Z","modified":"2022-10-24T11:38:12.204Z","headers":[],"params":[],"tests":[]},{"_id":"ebc9adfb-81fb-4f25-9769-1c5bf30c79de","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"a4d1190f-b09b-4b98-a7e3-298df4546b29","name":"Get Movie","url":"http://localhost:5000/api/movies/getmovie/63580055a69517df21f02181","method":"GET","sortNum":140000,"created":"2022-10-24T14:16:20.208Z","modified":"2022-10-26T08:11:21.287Z","headers":[],"params":[],"tests":[]},{"_id":"6e514233-c79f-4319-b449-445602b55bb0","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"6a9324d1-1818-4cf5-89fa-5591ef3d954d","name":"Add Review","url":"http://localhost:5000/api/review/add/635690ddcee3c14822bb3ab5","method":"POST","sortNum":150000,"created":"2022-10-24T16:37:10.276Z","modified":"2022-10-24T16:57:19.386Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjYyOTY4MX0.oyqo22ZI88qIChGqYmFr_KAFhmnLNtVEKVfrOZ0tF3A"}],"params":[],"body":{"type":"json","raw":"{\n  \"review\": \"this is a very amazing movie\"\n}","form":[]},"tests":[]},{"_id":"6aaacb0b-0f19-4523-ac02-331746d5209b","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"6a9324d1-1818-4cf5-89fa-5591ef3d954d","name":"Fetch Review","url":"http://localhost:5000/api/review/fetchreviews/635690ddcee3c14822bb3ab5","method":"GET","sortNum":160000,"created":"2022-10-24T16:52:23.549Z","modified":"2022-10-24T16:53:07.538Z","headers":[],"params":[],"tests":[]},{"_id":"d7a78485-258f-47b6-81b8-9e16d69e2b1e","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"0dd7c81c-5fec-4a66-ab26-0eb37436b8fc","name":"Fetch User Rating","url":"http://localhost:5000/api/rating/fetchuserrating/63580055a69517df21f02181","method":"GET","sortNum":170000,"created":"2022-10-25T13:13:38.755Z","modified":"2022-10-25T16:30:03.575Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1N2VkNmQ2MzhmNDMwZmQ1ODczYzQ2In0sImlhdCI6MTY2NjcwNjc5N30.XYg1u9ZpBKAwDu6W80E3pe6wv8OGOfoSnukOMsEmqjs"},{"name":"Content-Type","value":"application/json"}],"params":[],"tests":[]},{"_id":"1f58a870-e873-41f8-aa0e-6cd58ef0f3e4","colId":"c7414f9d-f918-4626-9c17-9837759d1834","containerId":"169d243e-c9a5-4e91-967f-310d00dea034","name":"GET USERNAME","url":"http://localhost:5000/api/users/getusername","method":"POST","sortNum":180000,"created":"2022-10-27T07:04:10.880Z","modified":"2022-10-27T07:20:30.364Z","headers":[{"name":"auth-token","value":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjcxNTc3Mn0.sdWCtcgaZ193IUdKNo9ub-ngfvf1xMzyOGDCWaAnAFo"}],"params":[],"tests":[]}]}
+{
+    "client": "Thunder Client",
+    "collectionName": "Movie108",
+    "dateExported": "2023-03-30T10:02:33.203Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "name": "Authentication",
+            "containerId": "",
+            "created": "2023-03-30T09:32:53.604Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Movies",
+            "containerId": "",
+            "created": "2023-03-30T09:32:53.605Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "name": "Rating",
+            "containerId": "",
+            "created": "2023-03-30T09:32:53.606Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "edeb736f-4b64-4fea-9dab-b312e81279a1",
+            "name": "Review",
+            "containerId": "",
+            "created": "2023-03-30T09:32:53.607Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "fde465f6-2777-4709-ac58-ebd950106a8f",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "name": "Signup",
+            "url": "http://localhost:5000/api/users/signup",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-03-30T09:32:53.605Z",
+            "modified": "2023-03-30T10:02:25.948Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Subid Das\",\n  \"email\": \"itsmesubid@gmail.com\",\n  \"password\": \"this is a passsword\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2eb66e64-765a-47a7-886b-46fb09c12996",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "name": "Login",
+            "url": "http://localhost:5000/api/users/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-03-30T09:32:53.606Z",
+            "modified": "2023-03-30T09:32:53.606Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"itsmesubid@gmail.com\",\n  \"password\": \"this is a password\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0d32e067-38fa-47e4-8b3b-05528e82c84d",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "name": "Get User",
+            "url": "http://localhost:5000/api/users/getuser/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-03-30T09:32:53.607Z",
+            "modified": "2023-03-30T09:32:53.607Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjcxNTc3Mn0.sdWCtcgaZ193IUdKNo9ub-ngfvf1xMzyOGDCWaAnAFo"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6542f768-38b1-478a-bfca-a860e3b600f0",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Fetch Movies",
+            "url": "http://localhost:5000/api/movies/fetchmovies/pageno=2",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-03-30T09:32:53.608Z",
+            "modified": "2023-03-30T09:32:53.608Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8fb48268-4e4d-4c9c-bac3-e02c4990f6bc",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Add Movie",
+            "url": "http://localhost:5000/api/movies/add",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-03-30T09:32:53.609Z",
+            "modified": "2023-03-30T09:41:35.810Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "title",
+                        "value": "Titanic"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Titanic is a 1997 American epic romance and disaster film directed, written, produced, and co-edited by James Cameron. Incorporating both historical and fictionalized aspects, it is based on accounts of the sinking of the RMS Titanic and stars Kate Winslet and Leonardo DiCaprio as members of different social classes who fall in love aboard the ship during its ill-fated maiden voyage. The film also features Billy Zane, Kathy Bates, Frances Fisher, Gloria Stuart, Bernard Hill, Jonathan Hyde, Victor Garber, and Bill Paxton. Cameron's inspiration for the film came from his fascination with shipwrecks; he felt a love story interspersed with the human loss would be essential to convey the emotional impact of the disaster. Production began on September 1, 1995,[15] when Cameron shot footage of the actual Titanic wreck. The modern scenes on the research vessel were shot on board the Akademik Mstislav Keldysh, which Cameron had used as a base when filming the wreck. Scale models, computer-generated imagery, and a reconstruction of the Titanic built at Baja Studios were used to re-create the sinking. The film was co-financed by Paramount Pictures and 20th Century Fox; the former handled distribution in North America while the latter released the film internationally. It was the most expensive film ever made at the time, with a production budget of $200 million. Filming took place from July 1996 to March 1997. Upon its release on December 19, 1997, Titanic achieved significant critical and commercial success, and then received numerous accolades. It was praised for its visual effects, performances (particularly DiCaprio, Winslet, and Stuart), production values, Cameron's direction, musical score, cinematography, story, and emotional depth. Nominated for 14 Academy Awards, it tied All About Eve (1950) for the most Oscar nominations, and won 11, including the awards for Best Picture and Best Director, tying Ben-Hur (1959) for the most Oscars won by a single film. With an initial worldwide gross of over $1.84 billion, Titanic was the first film to reach the billion-dollar mark. It remained the highest-grossing film of all time until Cameron's next film, Avatar, surpassed it in 2010. A number of re-releases since 1997 have pushed the film's worldwide total to $2.249 billion, making it the second film to gross more than $2 billion worldwide (after Avatar). It was also selected for preservation in the United States National Film Registry in 2017 for being \"culturally, historically or aesthetically significant\"."
+                    },
+                    {
+                        "name": "date",
+                        "value": "11-1-1997"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "c:\\Users\\windows\\Desktop\\Titanic.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c37acb04-0966-4faa-bcc2-ca6a0e090bad",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Update Movie",
+            "url": "http://localhost:5000/api/movies/update/634ce717da0aed8b04a6a535",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-03-30T09:32:53.610Z",
+            "modified": "2023-03-30T09:32:53.610Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"itsme-subid\",\n  \"fullTitle\": \"this is movie108 backend\",\n  \"image\": \"null\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "45129bda-0cc5-401c-9525-6616f31cca6d",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "name": "Delete User",
+            "url": "http://localhost:5000/api/users/deleteuser",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-03-30T09:32:53.611Z",
+            "modified": "2023-03-30T09:32:53.611Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0Y2YzODYzMzk0ZGI5MTVmOTQzODIwIn0sImlhdCI6MTY2NTk4NzQ2Mn0.ukk2CNJu8LDjljnGgpoJdcv_Vp0-39S4nlDdFlZ1AwU"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "644a3515-397c-4165-8858-4094591e7fd7",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Delete Movie",
+            "url": "http://localhost:5000/api/movies/delete/6354254ca09844a205e106e7",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2023-03-30T09:32:53.612Z",
+            "modified": "2023-03-30T09:32:53.612Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8e51f292-8950-4fe5-89fd-db511de6dfd1",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "name": "Add Rating",
+            "url": "http://localhost:5000/api/rating/add/635438127dc7a656eff96129",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-03-30T09:32:53.613Z",
+            "modified": "2023-03-30T09:32:53.613Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjU1NzE1N30.aPRZPHRxBopu6JZzOhEUy5SrBKxQBT_3NnH_kscfN3I"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"rating\": 5\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "099d3621-97d8-466b-8f3d-e81747a535bc",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "name": "fetch Rating",
+            "url": "http://localhost:5000/api/rating/fetchrating/635690ddcee3c14822bb3ab5",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-03-30T09:32:53.614Z",
+            "modified": "2023-03-30T09:32:53.614Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
+                },
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjU1NzE1N30.aPRZPHRxBopu6JZzOhEUy5SrBKxQBT_3NnH_kscfN3I",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1d352587-d191-4cf5-b7d8-4131f679f9d6",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Search Movie",
+            "url": "http://localhost:5000/api/movies/searchmovies/auto",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-03-30T09:32:53.615Z",
+            "modified": "2023-03-30T09:32:53.615Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "eace3c55-8dc7-47a0-af68-7000d03c724a",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "name": "Get Movie",
+            "url": "http://localhost:5000/api/movies/getmovie/63580055a69517df21f02181",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-03-30T09:32:53.617Z",
+            "modified": "2023-03-30T09:32:53.617Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2ccfcc34-8961-4fb3-ab64-948e4dfd5272",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "edeb736f-4b64-4fea-9dab-b312e81279a1",
+            "name": "Add Review",
+            "url": "http://localhost:5000/api/review/add/635690ddcee3c14822bb3ab5",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-03-30T09:32:53.618Z",
+            "modified": "2023-03-30T09:32:53.618Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjYyOTY4MX0.oyqo22ZI88qIChGqYmFr_KAFhmnLNtVEKVfrOZ0tF3A"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"review\": \"this is a very amazing movie\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3eb9be88-d461-4187-8726-f0153569d1ac",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "edeb736f-4b64-4fea-9dab-b312e81279a1",
+            "name": "Fetch Review",
+            "url": "http://localhost:5000/api/review/fetchreviews/635690ddcee3c14822bb3ab5",
+            "method": "GET",
+            "sortNum": 160000,
+            "created": "2023-03-30T09:32:53.619Z",
+            "modified": "2023-03-30T09:32:53.619Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3a9f9669-a698-4425-85a0-a4837896b549",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "name": "Fetch User Rating",
+            "url": "http://localhost:5000/api/rating/fetchuserrating/63580055a69517df21f02181",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2023-03-30T09:32:53.620Z",
+            "modified": "2023-03-30T09:32:53.620Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1N2VkNmQ2MzhmNDMwZmQ1ODczYzQ2In0sImlhdCI6MTY2NjcwNjc5N30.XYg1u9ZpBKAwDu6W80E3pe6wv8OGOfoSnukOMsEmqjs"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "84a8bb00-1d9d-4ef0-b4be-d73aa35c96bb",
+            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
+            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "name": "GET USERNAME",
+            "url": "http://localhost:5000/api/users/getusername",
+            "method": "POST",
+            "sortNum": 180000,
+            "created": "2023-03-30T09:32:53.621Z",
+            "modified": "2023-03-30T09:32:53.621Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM1NTZhOGQwZThiMmYyYjFmYzc0NDBkIn0sImlhdCI6MTY2NjcxNTc3Mn0.sdWCtcgaZ193IUdKNo9ub-ngfvf1xMzyOGDCWaAnAFo"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
