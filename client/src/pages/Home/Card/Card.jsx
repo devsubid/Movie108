@@ -68,11 +68,7 @@ function CarouselCard({ movies }) {
               )
             );
             return (
-              <Link
-                to={`/movie/${movie.title}-${movie._id}`}
-                key={index}
-                className="card"
-              >
+              <Link to={`/movie/${movie._id}`} key={index} className="card">
                 <img
                   src={`
                     data:image/png;base64,${base64String}

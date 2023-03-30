@@ -1,7 +1,8 @@
 {
-  "name": "movie108",
-  "version": "0.1.0",
-  "private": true,
+  "name": "movie108-server",
+  "version": "1.0.0",
+  "description": "Movie108: Ratings, Reviews, and Where to Watch the Best Movies & TV Shows",
+  "private": "false",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

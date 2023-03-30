@@ -210,19 +210,19 @@ function App() {
   useEffect(() => {
     localStorage.getItem("mode") === "light" &&
       document.body.classList.add("light");
-    console.clear();
-    console.log(
-      "%citsme-subid",
-      "font-family: sans-serif; font-weight: 700; color: #1f6feb; padding-block: 2rem; font-size: 2.5rem; text-transform: uppercase;"
-    );
-    console.log(
-      "%cStop!",
-      "font-family: sans-serif; font-weight: 700; color: red; font-size: 5rem; text-transform: uppercase;"
-    );
-    console.log(
-      `%cThis is a browser feature intended for developers. If someone told you to copy and paste something here to enable a Movie108 feature or "hack" the server or database, it is a scam and will give them access to your account.`,
-      `font-size: 1.2rem; font-family: sans-serif; color: #fff`
-    );
+    // console.clear();
+    // console.log(
+    //   "%citsme-subid",
+    //   "font-family: sans-serif; font-weight: 700; color: #1f6feb; padding-block: 2rem; font-size: 2.5rem; text-transform: uppercase;"
+    // );
+    // console.log(
+    //   "%cStop!",
+    //   "font-family: sans-serif; font-weight: 700; color: red; font-size: 5rem; text-transform: uppercase;"
+    // );
+    // console.log(
+    //   `%cThis is a browser feature intended for developers. If someone told you to copy and paste something here to enable a Movie108 feature or "hack" the server or database, it is a scam and will give them access to your account.`,
+    //   `font-size: 1.2rem; font-family: sans-serif; color: #fff`
+    // );
     if (location.pathname === "/") {
       document.title = "Home | Movie108";
     } else {
@@ -251,7 +251,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/aboutus" element={<About />} />
           <Route exact path="/contactus" element={<Contact />} />
-          <Route path="/movie/:movieTitle-:movieId" element={<Movie />} />
+          <Route path="/movie/:movieId" element={<Movie />} />
           <Route path="/search/:params" element={<Search />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

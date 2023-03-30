@@ -31,28 +31,28 @@ git clone https://github.com/itsme-Subid/movie108.git
 To run the project, you will need to have Node.js and npm or yarn or pnpm installed on your machine. Once you have those, you can use the following commands:
 
 ```bash
-cd movie108/client
-npm install
-npm run both
+cd ./movie108/server && yarn
+cd ./../client && yarn
+yarn both
 ```
 
-or, if you are using yarn:
+or, if you are using npm:
 
 ```bash
-cd movie108/client
-yarn
-yarn run both
+cd ./movie108/server && npm i
+cd ./../client && npm i
+npm run both
 ```
 
 or, if you are using pnpm:
 
 ```bash
-cd movie108/client
-pnpm install
+cd ./movie108/server && pnpm i
+cd ./../client && pnpm i
 pnpm run both
 ```
 
-This will start the development server and you should be able to see the website by visiting http://localhost:3000 in your browser.
+This will start the development server and you should be able to see the website by visiting <http://localhost:3000> in your browser.
 
 ## License
 

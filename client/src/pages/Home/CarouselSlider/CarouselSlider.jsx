@@ -93,7 +93,7 @@ function IndividualIntervalsExample({ movies }) {
             <div
               key={index}
               onClick={() => {
-                navigate(`/movie/${movie.title}-${movie._id}`);
+                navigate(`/movie/${movie._id}`);
               }}
             >
               <img
