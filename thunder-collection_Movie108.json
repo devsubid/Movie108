@@ -1,49 +1,49 @@
 {
     "client": "Thunder Client",
     "collectionName": "Movie108",
-    "dateExported": "2023-03-30T10:02:33.203Z",
+    "dateExported": "2023-04-02T16:43:46.349Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "_id": "62277596-d90e-4cd5-aa16-fdb75028a259",
             "name": "Authentication",
             "containerId": "",
-            "created": "2023-03-30T09:32:53.604Z",
+            "created": "2023-03-30T10:13:52.232Z",
             "sortNum": 20000
         },
         {
-            "_id": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Movies",
             "containerId": "",
-            "created": "2023-03-30T09:32:53.605Z",
+            "created": "2023-03-30T10:13:52.233Z",
             "sortNum": 30000
         },
         {
-            "_id": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "_id": "9cc7667b-adae-48aa-86c7-014549966259",
             "name": "Rating",
             "containerId": "",
-            "created": "2023-03-30T09:32:53.606Z",
+            "created": "2023-03-30T10:13:52.234Z",
             "sortNum": 40000
         },
         {
-            "_id": "edeb736f-4b64-4fea-9dab-b312e81279a1",
+            "_id": "8780eeba-1b10-49e2-9b73-27ad60806f9c",
             "name": "Review",
             "containerId": "",
-            "created": "2023-03-30T09:32:53.607Z",
+            "created": "2023-03-30T10:13:52.235Z",
             "sortNum": 50000
         }
     ],
     "requests": [
         {
-            "_id": "fde465f6-2777-4709-ac58-ebd950106a8f",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "_id": "b89b93ed-247e-4aa0-98d3-38d26447a885",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "62277596-d90e-4cd5-aa16-fdb75028a259",
             "name": "Signup",
             "url": "http://localhost:5000/api/users/signup",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2023-03-30T09:32:53.605Z",
-            "modified": "2023-03-30T10:02:25.948Z",
+            "created": "2023-03-30T10:13:52.232Z",
+            "modified": "2023-03-30T10:13:52.232Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -59,15 +59,15 @@
             "tests": []
         },
         {
-            "_id": "2eb66e64-765a-47a7-886b-46fb09c12996",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "_id": "292a91b6-7905-428b-886f-1a9a2466444f",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "62277596-d90e-4cd5-aa16-fdb75028a259",
             "name": "Login",
             "url": "http://localhost:5000/api/users/login",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2023-03-30T09:32:53.606Z",
-            "modified": "2023-03-30T09:32:53.606Z",
+            "created": "2023-03-30T10:13:52.233Z",
+            "modified": "2023-04-02T16:13:25.633Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -77,21 +77,21 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\": \"itsmesubid@gmail.com\",\n  \"password\": \"this is a password\"\n}",
+                "raw": "{\n  \"email\": \"itsmesubid@gmail.com\",\n  \"password\": \"this is a passsword\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "0d32e067-38fa-47e4-8b3b-05528e82c84d",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "_id": "04f7f89b-9462-40db-b69e-5178dd1b9a2b",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "62277596-d90e-4cd5-aa16-fdb75028a259",
             "name": "Get User",
             "url": "http://localhost:5000/api/users/getuser/",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2023-03-30T09:32:53.607Z",
-            "modified": "2023-03-30T09:32:53.607Z",
+            "created": "2023-03-30T10:13:52.234Z",
+            "modified": "2023-03-30T10:13:52.234Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -102,29 +102,29 @@
             "tests": []
         },
         {
-            "_id": "6542f768-38b1-478a-bfca-a860e3b600f0",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "be160517-46e8-420d-a6ab-45eae07f07eb",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Fetch Movies",
             "url": "http://localhost:5000/api/movies/fetchmovies/pageno=2",
             "method": "GET",
             "sortNum": 40000,
-            "created": "2023-03-30T09:32:53.608Z",
-            "modified": "2023-03-30T09:32:53.608Z",
+            "created": "2023-03-30T10:13:52.235Z",
+            "modified": "2023-03-30T10:13:52.235Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "8fb48268-4e4d-4c9c-bac3-e02c4990f6bc",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "35193028-c595-4687-b88a-64cc588c4538",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Add Movie",
             "url": "http://localhost:5000/api/movies/add",
             "method": "POST",
             "sortNum": 50000,
-            "created": "2023-03-30T09:32:53.609Z",
-            "modified": "2023-03-30T09:41:35.810Z",
+            "created": "2023-03-30T10:13:52.236Z",
+            "modified": "2023-04-02T16:38:22.436Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -143,11 +143,11 @@
                 "form": [
                     {
                         "name": "title",
-                        "value": "Titanic"
+                        "value": "hello world"
                     },
                     {
                         "name": "description",
-                        "value": "Titanic is a 1997 American epic romance and disaster film directed, written, produced, and co-edited by James Cameron. Incorporating both historical and fictionalized aspects, it is based on accounts of the sinking of the RMS Titanic and stars Kate Winslet and Leonardo DiCaprio as members of different social classes who fall in love aboard the ship during its ill-fated maiden voyage. The film also features Billy Zane, Kathy Bates, Frances Fisher, Gloria Stuart, Bernard Hill, Jonathan Hyde, Victor Garber, and Bill Paxton. Cameron's inspiration for the film came from his fascination with shipwrecks; he felt a love story interspersed with the human loss would be essential to convey the emotional impact of the disaster. Production began on September 1, 1995,[15] when Cameron shot footage of the actual Titanic wreck. The modern scenes on the research vessel were shot on board the Akademik Mstislav Keldysh, which Cameron had used as a base when filming the wreck. Scale models, computer-generated imagery, and a reconstruction of the Titanic built at Baja Studios were used to re-create the sinking. The film was co-financed by Paramount Pictures and 20th Century Fox; the former handled distribution in North America while the latter released the film internationally. It was the most expensive film ever made at the time, with a production budget of $200 million. Filming took place from July 1996 to March 1997. Upon its release on December 19, 1997, Titanic achieved significant critical and commercial success, and then received numerous accolades. It was praised for its visual effects, performances (particularly DiCaprio, Winslet, and Stuart), production values, Cameron's direction, musical score, cinematography, story, and emotional depth. Nominated for 14 Academy Awards, it tied All About Eve (1950) for the most Oscar nominations, and won 11, including the awards for Best Picture and Best Director, tying Ben-Hur (1959) for the most Oscars won by a single film. With an initial worldwide gross of over $1.84 billion, Titanic was the first film to reach the billion-dollar mark. It remained the highest-grossing film of all time until Cameron's next film, Avatar, surpassed it in 2010. A number of re-releases since 1997 have pushed the film's worldwide total to $2.249 billion, making it the second film to gross more than $2 billion worldwide (after Avatar). It was also selected for preservation in the United States National Film Registry in 2017 for being \"culturally, historically or aesthetically significant\"."
+                        "value": "hehe hello world"
                     },
                     {
                         "name": "date",
@@ -157,50 +157,80 @@
                 "files": [
                     {
                         "name": "image",
-                        "value": "c:\\Users\\windows\\Desktop\\Titanic.jpg"
+                        "value": "c:\\Users\\windows\\Desktop\\imagination\\imagination (16).png"
                     }
                 ]
             },
             "tests": []
         },
         {
-            "_id": "c37acb04-0966-4faa-bcc2-ca6a0e090bad",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "5b984c7d-809a-4221-8570-96a50cde9a8f",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Update Movie",
-            "url": "http://localhost:5000/api/movies/update/634ce717da0aed8b04a6a535",
+            "url": "http://localhost:5000/api/movies/update/642557a47b9dad0ebdced40f",
             "method": "PUT",
             "sortNum": 60000,
-            "created": "2023-03-30T09:32:53.610Z",
-            "modified": "2023-03-30T09:32:53.610Z",
+            "created": "2023-03-30T10:13:52.237Z",
+            "modified": "2023-04-02T16:42:21.999Z",
             "headers": [
                 {
                     "name": "auth-token",
-                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM0YzNmYjJkMjE1ZjEyZTRhYzQ1YTYyIn0sImlhdCI6MTY2NTk4MDk4Mn0.HF96zSH8AMfxOuFSMOFVsPwlh3lMvaQVKg-u5goK6F4"
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQyNTVlNjE3YjlkYWQwZWJkY2VkNDQ2In0sImlhdCI6MTY4MDQ1MjAwNX0.ybW_5q_Ux7sgxxprrYSRBiJht4uLkHTe6TfgWXceQk8"
                 },
                 {
                     "name": "Content-Type",
-                    "value": "application/json"
+                    "value": "application/json",
+                    "isDisabled": true
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "Thunder Client (https://www.thunderclient.com)",
+                    "isDisabled": true
                 }
             ],
             "params": [],
             "body": {
-                "type": "json",
-                "raw": "{\n  \"title\": \"itsme-subid\",\n  \"fullTitle\": \"this is movie108 backend\",\n  \"image\": \"null\"\n}",
-                "form": []
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "title",
+                        "value": "Avatar2"
+                    },
+                    {
+                        "name": "description",
+                        "value": "hello world"
+                    },
+                    {
+                        "name": "date",
+                        "value": "12-14-2022"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "c:\\Users\\windows\\Desktop\\avatar.png"
+                    }
+                ]
             },
             "tests": []
         },
         {
-            "_id": "45129bda-0cc5-401c-9525-6616f31cca6d",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "_id": "1e7dcd9e-474d-4fed-ae9f-44579f18feec",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "62277596-d90e-4cd5-aa16-fdb75028a259",
             "name": "Delete User",
             "url": "http://localhost:5000/api/users/deleteuser",
             "method": "POST",
             "sortNum": 70000,
-            "created": "2023-03-30T09:32:53.611Z",
-            "modified": "2023-03-30T09:32:53.611Z",
+            "created": "2023-03-30T10:13:52.238Z",
+            "modified": "2023-03-30T10:13:52.238Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -211,15 +241,15 @@
             "tests": []
         },
         {
-            "_id": "644a3515-397c-4165-8858-4094591e7fd7",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "924adc85-211f-433f-b8ca-1749a0e37f4a",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Delete Movie",
             "url": "http://localhost:5000/api/movies/delete/6354254ca09844a205e106e7",
             "method": "DELETE",
             "sortNum": 80000,
-            "created": "2023-03-30T09:32:53.612Z",
-            "modified": "2023-03-30T09:32:53.612Z",
+            "created": "2023-03-30T10:13:52.239Z",
+            "modified": "2023-03-30T10:13:52.239Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -230,15 +260,15 @@
             "tests": []
         },
         {
-            "_id": "8e51f292-8950-4fe5-89fd-db511de6dfd1",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "_id": "81ee6126-d1d5-426e-8dc6-1a6beaf3a850",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "9cc7667b-adae-48aa-86c7-014549966259",
             "name": "Add Rating",
             "url": "http://localhost:5000/api/rating/add/635438127dc7a656eff96129",
             "method": "POST",
             "sortNum": 100000,
-            "created": "2023-03-30T09:32:53.613Z",
-            "modified": "2023-03-30T09:32:53.613Z",
+            "created": "2023-03-30T10:13:52.240Z",
+            "modified": "2023-03-30T10:13:52.240Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -258,15 +288,15 @@
             "tests": []
         },
         {
-            "_id": "099d3621-97d8-466b-8f3d-e81747a535bc",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "_id": "c681bb37-0883-470e-9963-8c3638020f2e",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "9cc7667b-adae-48aa-86c7-014549966259",
             "name": "fetch Rating",
-            "url": "http://localhost:5000/api/rating/fetchrating/635690ddcee3c14822bb3ab5",
+            "url": "http://localhost:5000/api/rating/fetchrating/642557a47b9dad0ebdced40f",
             "method": "GET",
             "sortNum": 110000,
-            "created": "2023-03-30T09:32:53.614Z",
-            "modified": "2023-03-30T09:32:53.614Z",
+            "created": "2023-03-30T10:13:52.242Z",
+            "modified": "2023-04-01T19:21:01.174Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -293,43 +323,43 @@
             "tests": []
         },
         {
-            "_id": "1d352587-d191-4cf5-b7d8-4131f679f9d6",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "78f867de-4dd7-4545-8b3e-61d41c09aa6e",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Search Movie",
             "url": "http://localhost:5000/api/movies/searchmovies/auto",
             "method": "GET",
             "sortNum": 130000,
-            "created": "2023-03-30T09:32:53.615Z",
-            "modified": "2023-03-30T09:32:53.615Z",
+            "created": "2023-03-30T10:13:52.243Z",
+            "modified": "2023-03-30T10:13:52.243Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "eace3c55-8dc7-47a0-af68-7000d03c724a",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "be3c130e-d71c-4347-b585-bbd435cbc3d8",
+            "_id": "e6a6df94-0451-4423-ad6e-63e0ffc7bce0",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "42a4ef74-7500-4ea6-87dd-f5ab5fe83116",
             "name": "Get Movie",
             "url": "http://localhost:5000/api/movies/getmovie/63580055a69517df21f02181",
             "method": "GET",
             "sortNum": 140000,
-            "created": "2023-03-30T09:32:53.617Z",
-            "modified": "2023-03-30T09:32:53.617Z",
+            "created": "2023-03-30T10:13:52.244Z",
+            "modified": "2023-03-30T10:13:52.244Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "2ccfcc34-8961-4fb3-ab64-948e4dfd5272",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "edeb736f-4b64-4fea-9dab-b312e81279a1",
+            "_id": "903bb1b9-3e31-4d00-a731-80bbde0f39b9",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "8780eeba-1b10-49e2-9b73-27ad60806f9c",
             "name": "Add Review",
             "url": "http://localhost:5000/api/review/add/635690ddcee3c14822bb3ab5",
             "method": "POST",
             "sortNum": 150000,
-            "created": "2023-03-30T09:32:53.618Z",
-            "modified": "2023-03-30T09:32:53.618Z",
+            "created": "2023-03-30T10:13:52.245Z",
+            "modified": "2023-03-30T10:13:52.245Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -345,29 +375,29 @@
             "tests": []
         },
         {
-            "_id": "3eb9be88-d461-4187-8726-f0153569d1ac",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "edeb736f-4b64-4fea-9dab-b312e81279a1",
+            "_id": "e323de07-5425-43e0-b718-3125711fb87b",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "8780eeba-1b10-49e2-9b73-27ad60806f9c",
             "name": "Fetch Review",
             "url": "http://localhost:5000/api/review/fetchreviews/635690ddcee3c14822bb3ab5",
             "method": "GET",
             "sortNum": 160000,
-            "created": "2023-03-30T09:32:53.619Z",
-            "modified": "2023-03-30T09:32:53.619Z",
+            "created": "2023-03-30T10:13:52.246Z",
+            "modified": "2023-03-30T10:13:52.246Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "3a9f9669-a698-4425-85a0-a4837896b549",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "88f47bd7-159f-4944-957d-ea8f987d3657",
+            "_id": "54618106-c7f4-4ef9-8d2e-aaf2646c800b",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "9cc7667b-adae-48aa-86c7-014549966259",
             "name": "Fetch User Rating",
-            "url": "http://localhost:5000/api/rating/fetchuserrating/63580055a69517df21f02181",
+            "url": "http://localhost:5000/api/rating/fetchuserrating/642557a47b9dad0ebdced40f",
             "method": "GET",
             "sortNum": 170000,
-            "created": "2023-03-30T09:32:53.620Z",
-            "modified": "2023-03-30T09:32:53.620Z",
+            "created": "2023-03-30T10:13:52.247Z",
+            "modified": "2023-04-01T19:20:52.142Z",
             "headers": [
                 {
                     "name": "auth-token",
@@ -382,15 +412,15 @@
             "tests": []
         },
         {
-            "_id": "84a8bb00-1d9d-4ef0-b4be-d73aa35c96bb",
-            "colId": "27f9a95a-5f75-4e09-85ea-258aa7e90f6e",
-            "containerId": "2e3ed3dd-ca6b-4662-afb9-df1f29388734",
+            "_id": "8cb788d5-99a5-42a6-9fd4-04ddb26e1610",
+            "colId": "3f19844d-6a8e-4ba2-b453-8a760595ca7a",
+            "containerId": "62277596-d90e-4cd5-aa16-fdb75028a259",
             "name": "GET USERNAME",
             "url": "http://localhost:5000/api/users/getusername",
             "method": "POST",
             "sortNum": 180000,
-            "created": "2023-03-30T09:32:53.621Z",
-            "modified": "2023-03-30T09:32:53.621Z",
+            "created": "2023-03-30T10:13:52.248Z",
+            "modified": "2023-03-30T10:13:52.248Z",
             "headers": [
                 {
                     "name": "auth-token",

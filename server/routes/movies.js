@@ -102,37 +102,38 @@ router.post("/add", fetchUser, async (req, res) => {
   });
 });
 
-// PUT a movie using PUT "/api/movies/update". Login required
+// PUT a movie using PUT "/api/movies/update/:id". Login required
 router.put("/update/:id", fetchUser, async (req, res) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  const { title, year, image } = req.body;
-  try {
-    let movieVar = await movie.findById(req.params.id);
-    if (!movieVar) {
-      return res.status(404).send("Not Found");
+  upload(req, res, async (err) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err);
     }
-    if (movieVar.user.toString() !== req.user.id) {
-      return res.status(401).send("Not Allowed");
-    }
-    movieVar = await movie.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: {
-          title,
-          year,
-          image,
+    let { title, description, date } = req.body;
+    try {
+      const movieVar = await movie.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: {
+            title,
+            description,
+            date,
+            image: {
+              data: fs.readFileSync(
+                path.join(__dirname + "/../Images/" + req.file.filename)
+              ),
+              contentType: "image/jpeg,image/jpg,image/png",
+            }
+          }
         },
-      },
-      { new: true }
-    );
-    res.json({ movieVar });
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).send("Internal Server Error");
-  }
+        { new: true }
+      );
+      res.json(movieVar);
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send("Internal Server Error");
+    }
+  });
 });
 
 // DELETE a movie using DELETE "/api/movies/delete". Login required
